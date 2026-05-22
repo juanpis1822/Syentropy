@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Globe, Cpu, BarChart3, HeartHandshake, CheckCircle2, ArrowRight, X } from "lucide-react";
 import { ServiceItem } from "../types";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function ServicesBento() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedService]);
 
   const services: ServiceItem[] = [
     {
