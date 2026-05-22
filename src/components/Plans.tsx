@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { motion } from "motion/react";
 import { PlanItem } from "../types";
 
 interface PlansProps {
@@ -72,9 +73,11 @@ export default function Plans({ onSelectPlan }: PlansProps) {
         {/* Plans Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {plans.map((p, idx) => (
-            <div
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               key={idx}
-              className={`glass-panel p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-all duration-300 relative ${p.colorClass}`}
+              className={`glass-premium p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-colors duration-300 relative cursor-pointer ${p.colorClass}`}
             >
               {/* Highlight Recommended Badge */}
               {p.isRecommended && p.badge && (
@@ -121,7 +124,7 @@ export default function Plans({ onSelectPlan }: PlansProps) {
               >
                 Solicitar Info
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
 
