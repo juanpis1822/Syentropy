@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 import MarketContext from "./components/MarketContext";
 import ServicesBento from "./components/ServicesBento";
 import Plans from "./components/Plans";
-import StrategyTimeline from "./components/StrategyTimeline";
+
 import TechStack from "./components/TechStack";
 import ValueProposition from "./components/ValueProposition";
 import CaseStudies from "./components/CaseStudies";
@@ -48,7 +48,7 @@ export default function App() {
         <MarketContext />
         <ServicesBento />
         <Plans onSelectPlan={handleSelectPlan} />
-        <StrategyTimeline />
+
         <TechStack />
         <ValueProposition />
         <CaseStudies />
