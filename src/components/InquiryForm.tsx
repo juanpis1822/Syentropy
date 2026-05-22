@@ -158,7 +158,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
   };
 
   return (
-    <section id="contacto" className="py-24 px-6 md:px-12 bg-surface relative">
+    <section id="contacto" className="py-24 px-6 md:px-12 bg-surface relative border-t-glow">
       {/* Background soft focus bubble */}
       <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[130px] pointer-events-none"></div>
 
@@ -166,7 +166,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
         
         {!showBlueprint ? (
           /* Contact Form Input slide */
-          <div className="glass-panel rounded-[2.5rem] p-8 md:p-12 border border-outline-variant/20 shadow-2xl bg-surface-container-low/95">
+          <div className="glass-premium gradient-glow rounded-[2.5rem] p-8 md:p-12 border border-outline-variant/20 relative">
             <div className="text-center mb-10">
               <h2 className="font-sans text-3xl md:text-4xl font-bold text-on-surface mb-3 tracking-tight">
                 Iniciar Conversación

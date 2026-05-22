@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Globe, Cpu, BarChart3, HeartHandshake, CheckCircle2, ArrowRight, X } from "lucide-react";
 import { ServiceItem } from "../types";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function ServicesBento() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
@@ -90,9 +91,11 @@ export default function ServicesBento() {
         {/* Bento Grid layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((svc) => (
-            <div
+            <motion.div
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               key={svc.id}
-              className={`glass-panel p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 transition-all duration-300 relative overflow-hidden cursor-pointer ${svc.colorClass}`}
+              className={`glass-premium p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass}`}
               onClick={() => setSelectedService(svc)}
             >
               {/* Animated corner light effect */}
@@ -126,15 +129,25 @@ export default function ServicesBento() {
                 <span>Ver detalles</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Service Detailed Modal Dialog */}
+        <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md">
-            <div
-              className="w-full max-w-xl glass-panel rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 bg-surface-container-low p-8 md:p-10 relative animation-fadeIn"
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md"
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="w-full max-w-xl glass-premium rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 p-8 md:p-10 relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -189,9 +202,10 @@ export default function ServicesBento() {
                   Solicitar este Servicio
                 </button>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
+        </AnimatePresence>
 
       </div>
     </section>

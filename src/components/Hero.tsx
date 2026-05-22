@@ -21,13 +21,14 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6 md:px-12 py-24 select-none">
       {/* Background Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Soft Radial Ambient Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[550px] bg-secondary-container/10 rounded-full blur-[130px] mix-blend-screen opacity-70"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary-container/5 rounded-full blur-[110px] mix-blend-screen opacity-50"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none bg-surface-container-lowest overflow-hidden">
+        {/* Background Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-60 mix-blend-screen"></div>
         
-        {/* Math Grid lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:48px_48px] opacity-40"></div>
+        {/* Animated Radial Orbs */}
+        <div className="absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[160px] animate-float"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[140px] animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-surface-tint/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Main Container */}
