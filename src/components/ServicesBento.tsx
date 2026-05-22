@@ -100,7 +100,7 @@ export default function ServicesBento() {
   };
 
   return (
-    <section id="servicios" className={`py-24 px-6 md:px-12 bg-surface-container-lowest relative border-t border-outline-variant/10 ${selectedService ? "z-50" : "z-10"}`}>
+    <section id="servicios" className={`py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative border-t border-outline-variant/10 ${selectedService ? "z-50" : "z-10"}`}>
       <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}
@@ -114,13 +114,13 @@ export default function ServicesBento() {
         </div>
 
         {/* Bento Grid layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {services.map((svc) => (
             <motion.div
               whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
               key={svc.id}
-              className={`glass-premium p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass}`}
+              className={`glass-premium p-6 md:p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass}`}
               onClick={() => setSelectedService(svc)}
             >
               {/* Animated corner light effect */}

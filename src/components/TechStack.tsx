@@ -43,7 +43,7 @@ export default function TechStack() {
   };
 
   return (
-    <section className="py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
+    <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}

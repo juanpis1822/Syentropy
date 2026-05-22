@@ -42,10 +42,10 @@ export default function ValueProposition() {
   }, [activeTab]);
 
   return (
-    <section id="nosotros" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative overflow-hidden border-t border-outline-variant/10">
+    <section id="nosotros" className="py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative overflow-hidden border-t border-outline-variant/10">
       
-      {/* Background ambient spotlight blurs */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+      {/* Background ambient spotlight blurs - Hidden on mobile */}
+      <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         
@@ -87,7 +87,7 @@ export default function ValueProposition() {
         </div>
 
         {/* Right Side Interactive Abstract Console */}
-        <div className="flex-1 w-full relative h-[450px]">
+        <div className="flex-1 w-full relative h-[400px] md:h-[450px]">
           <div className="absolute inset-0 glass-premium rounded-3xl overflow-hidden p-6 hover:shadow-[0_0_35px_rgba(0,180,255,0.1)] transition-all flex flex-col gap-4">
             
             {/* Console Header */}
@@ -129,7 +129,7 @@ export default function ValueProposition() {
             </div>
 
             {/* Simulated Live Output Console box */}
-            <div className="flex-1 bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/20 font-mono text-xs text-on-surface-variant/90 space-y-2 overflow-y-auto min-h-[160px] custom-scroller select-none">
+            <div className="flex-1 bg-surface-container-lowest p-3 md:p-4 rounded-2xl border border-outline-variant/20 font-mono text-xs text-on-surface-variant/90 space-y-2 overflow-y-auto min-h-[140px] md:min-h-[160px] custom-scroller select-none">
               {simulatedLogs.map((log, index) => (
                 <div
                   key={index}

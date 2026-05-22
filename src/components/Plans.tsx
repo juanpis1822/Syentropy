@@ -53,7 +53,7 @@ export default function Plans({ onSelectPlan }: PlansProps) {
   ];
 
   return (
-    <section id="planes" className="relative py-24 px-6 md:px-12 bg-background z-10 border-t border-outline-variant/10">
+    <section id="planes" className="relative py-16 md:py-24 px-6 md:px-12 bg-background z-10 border-t border-outline-variant/10">
       
       {/* Background radial accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-secondary-container/5 rounded-full blur-[140px] pointer-events-none"></div>
@@ -71,13 +71,13 @@ export default function Plans({ onSelectPlan }: PlansProps) {
         </div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
           {plans.map((p, idx) => (
             <motion.div
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
               key={idx}
-              className={`glass-premium p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-colors duration-300 relative cursor-pointer ${p.colorClass}`}
+              className={`glass-premium p-5 md:p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-colors duration-300 relative cursor-pointer ${p.colorClass}`}
             >
               {/* Highlight Recommended Badge */}
               {p.isRecommended && p.badge && (
