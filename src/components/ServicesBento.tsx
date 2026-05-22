@@ -172,13 +172,13 @@ export default function ServicesBento() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="w-full max-w-xl glass-premium rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 p-8 md:p-10 relative"
+              className="w-full max-w-xl max-h-[85vh] overflow-y-auto custom-scroller glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-surface-tint/20 p-6 md:p-10 relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-6 right-6 p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
+                className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
               >
                 <X className="w-5 h-5" />
               </button>
