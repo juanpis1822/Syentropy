@@ -7,12 +7,26 @@ export default function ServicesBento() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     if (selectedService) {
-      document.body.style.overflow = "hidden";
+      // Smooth scroll to center the section
+      const el = document.getElementById("servicios");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        // Wait for smooth scroll to finish before locking body
+        timeoutId = setTimeout(() => {
+          document.body.style.overflow = "hidden";
+        }, 400); // 400ms is usually enough for smooth scroll
+      } else {
+        document.body.style.overflow = "hidden";
+      }
     } else {
       document.body.style.overflow = "unset";
     }
+    
     return () => {
+      clearTimeout(timeoutId);
       document.body.style.overflow = "unset";
     };
   }, [selectedService]);
