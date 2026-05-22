@@ -165,16 +165,17 @@ export default function ServicesBento() {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md"
+            className="fixed top-[80px] left-0 right-0 bottom-0 z-50 flex justify-center p-4 md:p-8 bg-background/90 backdrop-blur-md overflow-y-auto custom-scroller"
             onClick={() => setSelectedService(null)}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="w-full max-w-xl max-h-[85vh] overflow-y-auto custom-scroller glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-surface-tint/20 p-6 md:p-10 relative"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="flex items-start md:items-center justify-center min-h-full w-full max-w-xl py-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="w-full glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-surface-tint/20 p-6 md:p-10 relative"
+                onClick={(e) => e.stopPropagation()}
+              >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
@@ -228,6 +229,7 @@ export default function ServicesBento() {
                 </button>
               </div>
             </motion.div>
+            </div>
           </motion.div>
         )}
         </AnimatePresence>
