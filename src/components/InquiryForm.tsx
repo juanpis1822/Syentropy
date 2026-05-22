@@ -1,5 +1,6 @@
 import { useState, useEffect, FormEvent } from "react";
 import { Send, CheckCircle2, Sparkles, Terminal, ArrowRight, ShieldCheck, Mail, User, Info, RefreshCw } from "lucide-react";
+import { supabase } from "../lib/supabase";
 
 interface InquiryFormProps {
   selectedPlan: string;
@@ -32,7 +33,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
     }
   }, [selectedPlan]);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!name || !email || !description) {
       alert("Por favor diligencie todos los campos requeridos.");
@@ -40,86 +41,112 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
     }
 
     setIsSubmitting(true);
+    setProgressMsg("Conectando con base de datos segura...");
     
-    // Simulate high-fidelity AI-powered generation sequence
-    const messages = [
-      "Iniciando análisis de infraestructura...",
-      "Estructurando pipeline de datos óptimo...",
-      "Sincronizando módulos de Automatización...",
-      "Generando Roadmap Arquitectónico..."
-    ];
+    try {
+      // Send data to Supabase PostgreSQL
+      const { error } = await supabase
+        .from('solicitudes')
+        .insert([
+          { 
+            nombre: name, 
+            email: email, 
+            interes: interest, 
+            descripcion: description 
+          }
+        ]);
 
-    let msgIndex = 0;
-    setProgressMsg(messages[0]);
-    
-    const interval = setInterval(() => {
-      msgIndex++;
-      if (msgIndex < messages.length) {
-        setProgressMsg(messages[msgIndex]);
-      } else {
-        clearInterval(interval);
-        
-        // Build customized high-precision blueprint data
-        let suggestedTech = "";
-        let steps: string[] = [];
-        let priceRange = "";
-        let duration = "";
-
-        if (interest === "automatizacion") {
-          suggestedTech = "n8n Integration Cloud, WABA (WhatsApp Business API), NestJS API Router, OpenAI Assistant Model";
-          steps = [
-            "Mapeo de cuellos de botella manuales en su circuito operativo.",
-            "Desarrollo e integración de API Webhook en n8n para comunicación bidireccional.",
-            "Despliegue de Agente conversacional inteligente con filtros de control.",
-            "Testing de redundancias y optimización de flujos de notificaciones."
-          ];
-          duration = "3-5 Semanas";
-          priceRange = "Operación Estándar";
-        } else if (interest === "desarrollo") {
-          suggestedTech = "React 19, Next.js Full-Stack App Router, Tailwind CSS v4, Postgres Database, AWS Cloud Deployment";
-          steps = [
-            "Wireframing inicial interactivo y diagramación de experiencia UI/UX.",
-            "Construcción modular frontend orientada a rendimiento y optimización SEO.",
-            "Estructuración de base de datos transaccional con arquitectura serverless.",
-            "Despliegue final con pipeline CI/CD en entornos de alta disponibilidad."
-          ];
-          duration = "4-7 Semanas";
-          priceRange = "Infraestructura Escalable";
-        } else if (interest === "diseno") {
-          suggestedTech = "Figma Design Tokens, Tailwind Premium UI Kit, Motion Animations, SVG Vector Asset sets";
-          steps = [
-            "Auditoría estética de marca y definición de la guía de estilos digital.",
-            "Construcción del sistema de componentes reactivos unificados.",
-            "Refinanciamiento tipográfico y optimización del ritmo visual general.",
-            "Entrega de prototipo interactivo de alta fidelidad listo para producción."
-          ];
-          duration = "2-4 Semanas";
-          priceRange = "Diseño de Vanguardia";
-        } else {
-          suggestedTech = "Consultoría Avanzada por Talentos Certificados IBM, Auditoría Integral de Base de Datos y Procesos";
-          steps = [
-            "Entrevistas de requerimiento operacional con líderes de área.",
-            "Auditoría profunda de la arquitectura web actual y cuellos de botella.",
-            "Definición técnica detallada de la propuesta de transformación.",
-            "Soporte continuado mensual y ajustes periódicos de seguridad."
-          ];
-          duration = "A convenir";
-          priceRange = "Consultoría Especializada";
-        }
-
-        setBlueprintData({
-          clientName: name,
-          interestArea: interest === "automatizacion" ? "Automatización de Procesos" : interest === "desarrollo" ? "Desarrollo Web / App" : interest === "diseno" ? "Diseño UI/UX" : "Consultoría General",
-          suggestedTech,
-          steps,
-          duration,
-          priceRange
-        });
-
+      if (error) {
+        console.error("Error inserting data: ", error);
+        alert("Hubo un problema al guardar la solicitud. Por favor intenta de nuevo.");
         setIsSubmitting(false);
-        setShowBlueprint(true);
+        return;
       }
-    }, 1000);
+
+      // Simulate high-fidelity AI-powered generation sequence for UI feeling
+      const messages = [
+        "Solicitud guardada exitosamente...",
+        "Iniciando análisis de infraestructura...",
+        "Estructurando pipeline de datos óptimo...",
+        "Generando Roadmap Arquitectónico..."
+      ];
+
+      let msgIndex = 0;
+      setProgressMsg(messages[0]);
+      
+      const interval = setInterval(() => {
+        msgIndex++;
+        if (msgIndex < messages.length) {
+          setProgressMsg(messages[msgIndex]);
+        } else {
+          clearInterval(interval);
+          
+          // Build customized high-precision blueprint data
+          let suggestedTech = "";
+          let steps: string[] = [];
+          let priceRange = "";
+          let duration = "";
+
+          if (interest === "automatizacion") {
+            suggestedTech = "n8n Integration Cloud, WABA (WhatsApp Business API), NestJS API Router, OpenAI Assistant Model";
+            steps = [
+              "Mapeo de cuellos de botella manuales en su circuito operativo.",
+              "Desarrollo e integración de API Webhook en n8n para comunicación bidireccional.",
+              "Despliegue de Agente conversacional inteligente con filtros de control.",
+              "Testing de redundancias y optimización de flujos de notificaciones."
+            ];
+            duration = "3-5 Semanas";
+            priceRange = "Operación Estándar";
+          } else if (interest === "desarrollo") {
+            suggestedTech = "React 19, Next.js Full-Stack App Router, Tailwind CSS v4, Postgres Database, AWS Cloud Deployment";
+            steps = [
+              "Wireframing inicial interactivo y diagramación de experiencia UI/UX.",
+              "Construcción modular frontend orientada a rendimiento y optimización SEO.",
+              "Estructuración de base de datos transaccional con arquitectura serverless.",
+              "Despliegue final con pipeline CI/CD en entornos de alta disponibilidad."
+            ];
+            duration = "4-7 Semanas";
+            priceRange = "Infraestructura Escalable";
+          } else if (interest === "diseno") {
+            suggestedTech = "Figma Design Tokens, Tailwind Premium UI Kit, Motion Animations, SVG Vector Asset sets";
+            steps = [
+              "Auditoría estética de marca y definición de la guía de estilos digital.",
+              "Construcción del sistema de componentes reactivos unificados.",
+              "Refinanciamiento tipográfico y optimización del ritmo visual general.",
+              "Entrega de prototipo interactivo de alta fidelidad listo para producción."
+            ];
+            duration = "2-4 Semanas";
+            priceRange = "Diseño de Vanguardia";
+          } else {
+            suggestedTech = "Consultoría Avanzada por Talentos Certificados IBM, Auditoría Integral de Base de Datos y Procesos";
+            steps = [
+              "Entrevistas de requerimiento operacional con líderes de área.",
+              "Auditoría profunda de la arquitectura web actual y cuellos de botella.",
+              "Definición técnica detallada de la propuesta de transformación.",
+              "Soporte continuado mensual y ajustes periódicos de seguridad."
+            ];
+            duration = "A convenir";
+            priceRange = "Consultoría Especializada";
+          }
+
+          setBlueprintData({
+            clientName: name,
+            interestArea: interest === "automatizacion" ? "Automatización de Procesos" : interest === "desarrollo" ? "Desarrollo Web / App" : interest === "diseno" ? "Diseño UI/UX" : "Consultoría General",
+            suggestedTech,
+            steps,
+            duration,
+            priceRange
+          });
+
+          setIsSubmitting(false);
+          setShowBlueprint(true);
+        }
+      }, 800);
+    } catch (err) {
+      console.error("Unknown error:", err);
+      alert("Falla en la red. Intente de nuevo.");
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
