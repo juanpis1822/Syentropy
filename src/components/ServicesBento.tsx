@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Globe, Cpu, BarChart3, HeartHandshake, CheckCircle2, ArrowRight, X } from "lucide-react";
 import { ServiceItem } from "../types";
 import { motion, AnimatePresence } from "motion/react";
+import { createPortal } from "react-dom";
 
 export default function ServicesBento() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
@@ -158,81 +159,84 @@ export default function ServicesBento() {
           ))}
         </div>
 
-        {/* Service Detailed Modal Dialog */}
-        <AnimatePresence>
-        {selectedService && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            className="fixed top-[80px] left-0 right-0 bottom-0 z-50 flex justify-center p-4 md:p-8 bg-background/90 backdrop-blur-md overflow-y-auto custom-scroller"
-            onClick={() => setSelectedService(null)}
-          >
-            <div className="flex items-start md:items-center justify-center min-h-full w-full max-w-xl py-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="w-full glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-surface-tint/20 p-6 md:p-10 relative"
-                onClick={(e) => e.stopPropagation()}
-              >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center text-primary">
-                  {renderIcon(selectedService.icon)}
-                </div>
-                <div>
-                  <h3 className="font-sans text-2xl font-bold text-on-surface">
-                    {selectedService.title}
-                  </h3>
-                  <span className="text-xs text-surface-tint tracking-widest uppercase font-semibold">
-                    Servicio de Alta Fidelidad
-                  </span>
-                </div>
-              </div>
-
-              <p className="font-sans text-[15px] text-on-surface-variant mb-6 leading-relaxed font-light">
-                {selectedService.description}
-              </p>
-
-              <div className="space-y-4">
-                <h4 className="font-sans text-xs font-bold text-on-surface uppercase tracking-wider">
-                  Especificaciones del servicio:
-                </h4>
-                <ul className="grid grid-cols-1 gap-3">
-                  {selectedService.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-on-surface/90 glass-panel p-3.5 rounded-xl border-white/5 bg-background/40">
-                      <CheckCircle2 className="w-5 h-5 text-surface-tint shrink-0 mt-0.5" />
-                      <span className="font-light">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-8 flex justify-end">
-                <button
-                  onClick={() => {
-                    setSelectedService(null);
-                    const el = document.getElementById("contacto");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-sans font-semibold text-sm hover:shadow-[0_0_15px_rgba(0,180,255,0.4)] transition-all active:scale-95"
+        {/* Service Detailed Modal Dialog - Portaled to escape all clipping constraints */}
+        {typeof document !== "undefined" && createPortal(
+          <AnimatePresence>
+          {selectedService && (
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              className="fixed top-[80px] left-0 right-0 bottom-0 z-[100] flex justify-center p-4 md:p-8 bg-background/90 backdrop-blur-md overflow-y-auto custom-scroller"
+              onClick={() => setSelectedService(null)}
+            >
+              <div className="flex items-start md:items-center justify-center min-h-full w-full max-w-xl py-4">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  className="w-full glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-surface-tint/20 p-6 md:p-10 relative"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  Solicitar este Servicio
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
+                >
+                  <X className="w-5 h-5" />
                 </button>
+  
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center text-primary">
+                    {renderIcon(selectedService.icon)}
+                  </div>
+                  <div>
+                    <h3 className="font-sans text-2xl font-bold text-on-surface">
+                      {selectedService.title}
+                    </h3>
+                    <span className="text-xs text-surface-tint tracking-widest uppercase font-semibold">
+                      Servicio de Alta Fidelidad
+                    </span>
+                  </div>
+                </div>
+  
+                <p className="font-sans text-[15px] text-on-surface-variant mb-6 leading-relaxed font-light">
+                  {selectedService.description}
+                </p>
+  
+                <div className="space-y-4">
+                  <h4 className="font-sans text-xs font-bold text-on-surface uppercase tracking-wider">
+                    Especificaciones del servicio:
+                  </h4>
+                  <ul className="grid grid-cols-1 gap-3">
+                    {selectedService.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-on-surface/90 glass-panel p-3.5 rounded-xl border-white/5 bg-background/40">
+                        <CheckCircle2 className="w-5 h-5 text-surface-tint shrink-0 mt-0.5" />
+                        <span className="font-light">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+  
+                <div className="mt-8 flex justify-end">
+                  <button
+                    onClick={() => {
+                      setSelectedService(null);
+                      const el = document.getElementById("contacto");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-sans font-semibold text-sm hover:shadow-[0_0_15px_rgba(0,180,255,0.4)] transition-all active:scale-95"
+                  >
+                    Solicitar este Servicio
+                  </button>
+                </div>
+              </motion.div>
               </div>
             </motion.div>
-            </div>
-          </motion.div>
+          )}
+          </AnimatePresence>,
+          document.body
         )}
-        </AnimatePresence>
 
       </div>
     </section>
