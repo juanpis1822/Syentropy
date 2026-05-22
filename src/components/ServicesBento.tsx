@@ -100,7 +100,7 @@ export default function ServicesBento() {
   };
 
   return (
-    <section id="servicios" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-outline-variant/10">
+    <section id="servicios" className={`py-24 px-6 md:px-12 bg-surface-container-lowest relative border-t border-outline-variant/10 ${selectedService ? "z-50" : "z-10"}`}>
       <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}
