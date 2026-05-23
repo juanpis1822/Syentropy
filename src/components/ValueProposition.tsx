@@ -27,6 +27,17 @@ export default function ValueProposition() {
       ]
     };
 
+    const initialMsgs = {
+      api: "[SYSTEM_OK] Conectando a endpoints REST/GraphQL...",
+      db: "[SYSTEM_OK] Estableciendo túnel seguro con PostgreSQL...",
+      ai: "[SYSTEM_OK] Inicializando motores cognitivos LLM..."
+    };
+
+    // Immediate feedback: clear logs and show init message for the new tab
+    setSimulatedLogs([
+      `[${new Date().toLocaleTimeString()}] ${initialMsgs[activeTab]}`
+    ]);
+
     const interval = setInterval(() => {
       // Pick a random log from active tab pool
       const pool = logsPool[activeTab];
@@ -36,7 +47,7 @@ export default function ValueProposition() {
         `[${timestamp}] ${randomLog}`,
         ...prev.slice(0, 5)
       ]);
-    }, 2500);
+    }, 2000); // slightly faster for better interactivity
 
     return () => clearInterval(interval);
   }, [activeTab]);
