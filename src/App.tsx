@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MarketContext from "./components/MarketContext";
@@ -79,6 +80,7 @@ export default function App() {
             <a href="#servicios" className="hover:text-primary transition-colors">Servicios</a>
             <a href="#planes" className="hover:text-primary transition-colors">Planes</a>
             <a href="#contacto" className="hover:text-primary transition-colors">Contacto</a>
+            <Link to="/privacidad" className="hover:text-primary transition-colors">Privacidad</Link>
           </div>
         </div>
       </footer>
