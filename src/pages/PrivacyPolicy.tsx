@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
                 y de los servicios digitales asociados.
               </p>
               <p className="mt-2">
-                Correo electrónico de contacto para temas de privacidad: <strong className="text-on-surface font-medium">privacidad@syentropy.com</strong>
+                Correo electrónico de contacto para temas de privacidad: <strong className="text-on-surface font-medium">syentropy.admin@gmail.com</strong>
               </p>
             </section>
 
@@ -159,7 +159,7 @@ export default function PrivacyPolicy() {
               </ul>
               <p className="mt-3">
                 Para ejercer cualquiera de estos derechos, envíe un correo electrónico a{" "}
-                <strong className="text-on-surface font-medium">privacidad@syentropy.com</strong>{" "}
+                <strong className="text-on-surface font-medium">syentropy.admin@gmail.com</strong>{" "}
                 indicando su nombre completo, el derecho que desea ejercer y una descripción clara de su solicitud. 
                 Responderemos en un plazo máximo de quince (15) días hábiles.
               </p>
@@ -177,7 +177,7 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc list-inside space-y-1.5 pl-2">
                 <li>
-                  Envíe un correo electrónico a <strong className="text-on-surface font-medium">privacidad@syentropy.com</strong> con 
+                  Envíe un correo electrónico a <strong className="text-on-surface font-medium">syentropy.admin@gmail.com</strong> con 
                   el asunto <em>"Solicitud de eliminación de datos"</em>, indicando el correo electrónico con el que se registró 
                   o interactuó con nuestros servicios.
                 </li>
@@ -216,7 +216,7 @@ export default function PrivacyPolicy() {
               <p>
                 Este sitio web y nuestros servicios no están dirigidos a menores de edad. No recopilamos intencionalmente 
                 datos personales de menores de 18 años. Si usted es padre, madre o tutor y cree que un menor nos ha 
-                proporcionado datos personales, contáctenos a <strong className="text-on-surface font-medium">privacidad@syentropy.com</strong> para 
+                proporcionado datos personales, contáctenos a <strong className="text-on-surface font-medium">syentropy.admin@gmail.com</strong> para 
                 solicitar su eliminación.
               </p>
             </section>
