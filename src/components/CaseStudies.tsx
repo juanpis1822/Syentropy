@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowUpRight, Activity, Smartphone, Laptop, CheckCircle2, X } from "lucide-react";
 import { ProjectCase } from "../types";
+import { createPortal } from "react-dom";
 
 export default function CaseStudies() {
   const [selectedCase, setSelectedCase] = useState<ProjectCase | null>(null);
+
+  useEffect(() => {
+    if (selectedCase) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => { document.body.style.overflow = "unset"; };
+  }, [selectedCase]);
 
   const cases: ProjectCase[] = [
     {
@@ -155,98 +165,106 @@ export default function CaseStudies() {
           ))}
         </div>
 
-        {/* Success Case Detailed Modal Details sheet */}
-        {selectedCase && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md">
-            <div
-              className="w-full max-w-2xl glass-panel rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 bg-surface-container-low p-8 md:p-10 relative animation-fadeIn"
-              onClick={(e) => e.stopPropagation()}
+        {/* Success Case Detailed Modal - Portaled to escape clipping */}
+        {typeof document !== "undefined" && createPortal(
+          selectedCase && (
+            <div 
+              className="fixed top-[80px] left-0 right-0 bottom-0 z-[100] flex justify-center p-4 md:p-8 bg-background/90 backdrop-blur-md overflow-y-auto custom-scroller"
+              onClick={() => setSelectedCase(null)}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedCase(null)}
-                className="absolute top-6 right-6 p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-start md:items-center justify-center min-h-full w-full max-w-2xl py-4">
+                <div
+                  className="w-full glass-panel rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 bg-surface-container-low p-6 md:p-10 relative animate-fadeIn"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedCase(null)}
+                    className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
 
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center text-primary font-bold font-mono">
-                  {selectedCase.type === "web" ? "SaaS" : "APP"}
-                </div>
-                <div>
-                  <h3 className="font-sans text-2xl font-bold text-on-surface">
-                    {selectedCase.title}
-                  </h3>
-                  <p className="text-xs text-on-surface-variant uppercase tracking-widest font-mono select-none">
-                    {selectedCase.meta}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-sans text-xs font-bold text-on-surface uppercase tracking-wider mb-2">
-                    Resumen del proyecto:
-                  </h4>
-                  <p className="font-sans text-base text-on-surface-variant leading-relaxed font-light">
-                    {selectedCase.description} El diseño de la interfaz se planificó optimizando la baja latencia de red, la accesibilidad general para todos los usuarios y un dashboard analítico interno robusto.
-                  </p>
-                </div>
-
-                {/* Key Metrics breakdown block */}
-                {selectedCase.metrics && (
-                  <div>
-                    <h4 className="font-sans text-xs font-bold text-on-surface uppercase tracking-wider mb-3">
-                      Resultados Clave Obtenidos:
-                    </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {selectedCase.metrics.map((metric, mIdx) => (
-                        <div key={mIdx} className="glass-panel p-4 rounded-2xl border-white/5 bg-background/40 flex flex-col justify-center">
-                          <span className="font-sans text-2xl font-bold text-primary block mb-0.5">
-                            {metric.value}
-                          </span>
-                          <span className="font-sans text-[11px] text-on-surface-variant/80 font-light leading-snug">
-                            {metric.label}
-                          </span>
-                        </div>
-                      ))}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center text-primary font-bold font-mono">
+                      {selectedCase.type === "web" ? "SaaS" : "APP"}
+                    </div>
+                    <div>
+                      <h3 className="font-sans text-2xl font-bold text-on-surface">
+                        {selectedCase.title}
+                      </h3>
+                      <p className="text-xs text-on-surface-variant uppercase tracking-widest font-mono select-none">
+                        {selectedCase.meta}
+                      </p>
                     </div>
                   </div>
-                )}
 
-                <div className="p-4 rounded-2xl border border-outline-variant/20 bg-background/30 flex items-start gap-4">
-                  <Activity className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <div className="text-xs sm:text-sm text-on-surface-variant/90 leading-relaxed font-light">
-                    <strong className="text-on-surface block mb-0.5 font-semibold">Integración de arquitectura lógica profunda</strong>
-                    Este proyecto cuenta con sistemas redundantes automatizados, bases de datos PostgreSQL optimizadas por índices eficientes, y flujos de webhook sincronizados.
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-sans text-xs font-bold text-on-surface uppercase tracking-wider mb-2">
+                        Resumen del proyecto:
+                      </h4>
+                      <p className="font-sans text-base text-on-surface-variant leading-relaxed font-light">
+                        {selectedCase.description} El diseño de la interfaz se planificó optimizando la baja latencia de red, la accesibilidad general para todos los usuarios y un dashboard analítico interno robusto.
+                      </p>
+                    </div>
+
+                    {/* Key Metrics breakdown block */}
+                    {selectedCase.metrics && (
+                      <div>
+                        <h4 className="font-sans text-xs font-bold text-on-surface uppercase tracking-wider mb-3">
+                          Resultados Clave Obtenidos:
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                          {selectedCase.metrics.map((metric, mIdx) => (
+                            <div key={mIdx} className="glass-panel p-4 rounded-2xl border-white/5 bg-background/40 flex flex-col justify-center">
+                              <span className="font-sans text-2xl font-bold text-primary block mb-0.5">
+                                {metric.value}
+                              </span>
+                              <span className="font-sans text-[11px] text-on-surface-variant/80 font-light leading-snug">
+                                {metric.label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="p-4 rounded-2xl border border-outline-variant/20 bg-background/30 flex items-start gap-4">
+                      <Activity className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <div className="text-xs sm:text-sm text-on-surface-variant/90 leading-relaxed font-light">
+                        <strong className="text-on-surface block mb-0.5 font-semibold">Integración de arquitectura lógica profunda</strong>
+                        Este proyecto cuenta con sistemas redundantes automatizados, bases de datos PostgreSQL optimizadas por índices eficientes, y flujos de webhook sincronizados.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <a
+                      href={selectedCase.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-sans text-sm font-semibold text-primary hover:text-surface-tint underline decoration-primary/40 underline-offset-4 cursor-pointer"
+                    >
+                      Visitar sitio web oficial
+                    </a>
+                    
+                    <button
+                      onClick={() => {
+                        setSelectedCase(null);
+                        const el = document.getElementById("contacto");
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-sans font-semibold text-sm hover:shadow-[0_0_15px_rgba(0,180,255,0.4)] transition-all active:scale-95"
+                    >
+                      Me interesa algo similar
+                    </button>
                   </div>
                 </div>
               </div>
-
-              <div className="mt-8 flex justify-between items-center">
-                <a
-                  href={selectedCase.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-sans text-sm font-semibold text-primary hover:text-surface-tint underline decoration-primary/40 underline-offset-4 cursor-pointer"
-                >
-                  Visitar sitio web oficial
-                </a>
-                
-                <button
-                  onClick={() => {
-                    setSelectedCase(null);
-                    const el = document.getElementById("contacto");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-sans font-semibold text-sm hover:shadow-[0_0_15px_rgba(0,180,255,0.4)] transition-all active:scale-95"
-                >
-                  Me interesa algo similar
-                </button>
-              </div>
             </div>
-          </div>
+          ),
+          document.body
         )}
 
       </div>
