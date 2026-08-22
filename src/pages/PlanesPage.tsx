@@ -1,18 +1,13 @@
-import { useState } from "react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import Plans from "../components/Plans";
-import InquiryForm from "../components/InquiryForm";
 import ScrollReveal from "../components/ScrollReveal";
 
 export default function PlanesPage() {
-  const [selectedPlan, setSelectedPlan] = useState("");
+  const navigate = useNavigate();
 
   const handleSelectPlan = (planName: string) => {
-    setSelectedPlan(planName);
-    const formEl = document.getElementById("contacto");
-    if (formEl) {
-      formEl.scrollIntoView({ behavior: "smooth" });
-    }
+    navigate("/contacto");
   };
 
   return (
@@ -44,15 +39,6 @@ export default function PlanesPage() {
 
       <ScrollReveal>
         <Plans onSelectPlan={handleSelectPlan} />
-      </ScrollReveal>
-
-      {/* Visual separator */}
-      <div className="relative h-px mx-auto max-w-4xl my-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/40 to-transparent"></div>
-      </div>
-
-      <ScrollReveal delay={0.1}>
-        <InquiryForm selectedPlan={selectedPlan} />
       </ScrollReveal>
     </>
   );

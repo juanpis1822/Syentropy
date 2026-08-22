@@ -25,10 +25,10 @@ export default function Team() {
       colorClass: "border-tertiary/30 text-tertiary hover:border-tertiary/60",
     },
     {
-      name: "Laura Sofia Moreno Suarez",
-      role: "Contabilidad & Full-Stack",
-      description: "Especialista en el control, gestión financiera y desarrollo escalable, integrando análisis fiscal con lógica de software.",
-      avatarIcon: "CFO",
+      name: "Sergio Nicolas Osorio Guevara",
+      role: "Co-Fundador / Rol Estratégico",
+      description: "Visión analítica de mercado, estructuración de modelo de negocio y operaciones comerciales para herramientas SaaS.",
+      avatarIcon: "CSO",
       colorClass: "border-surface-tint/30 text-surface-tint hover:border-surface-tint/60",
     }
   ];
