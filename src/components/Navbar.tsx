@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,8 +43,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Brand Logo & Name */}
-        <div
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        <Link
+          to="/"
           className="flex items-center gap-3 cursor-pointer group"
           id="nav-logo"
         >
@@ -57,26 +60,39 @@ export default function Navbar() {
           <span className="font-sans text-2xl font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
             Syentropy
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 lg:space-x-12">
-          {["Servicios", "Planes", "Portafolio", "Equipo", "Contacto"].map((tab) => (
-            <li key={tab}>
-              <button
-                onClick={() => scrollToSection(tab.toLowerCase())}
-                className="font-sans text-[15px] font-medium text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
-              >
-                {tab}
-              </button>
-            </li>
-          ))}
+          {[
+            { name: "Inicio", path: "/" },
+            { name: "Servicios", path: "/servicios" },
+            { name: "Planes", path: "/planes" },
+            { name: "Contacto", path: "/contacto" }
+          ].map((tab) => {
+            const isActive = location.pathname === tab.path;
+            return (
+              <li key={tab.name} className="relative">
+                <Link
+                  to={tab.path}
+                  className={`font-sans text-[15px] font-medium transition-colors cursor-pointer block py-2 ${
+                    isActive ? "text-primary" : "text-on-surface-variant hover:text-primary"
+                  }`}
+                >
+                  {tab.name}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-t-full gradient-glow"></span>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Action Button */}
         <div className="hidden md:block">
           <button
-            onClick={() => scrollToSection("contacto")}
+            onClick={() => navigate("/contacto")}
             className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-gradient-to-r from-secondary-container to-primary-container text-white font-sans font-semibold hover:shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300 transform active:scale-95 cursor-pointer text-sm"
           >
             Empezar
@@ -97,19 +113,33 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-outline-variant/30 py-6 px-6 slide-in-top">
           <ul className="flex flex-col space-y-4">
-            {["Servicios", "Planes", "Portafolio", "Equipo", "Contacto"].map((tab) => (
-              <li key={tab}>
-                <button
-                  onClick={() => scrollToSection(tab.toLowerCase())}
-                  className="w-full text-left font-sans text-base font-semibold text-on-surface-variant hover:text-primary transition-colors py-2"
-                >
-                  {tab}
-                </button>
-              </li>
-            ))}
+            {[
+              { name: "Inicio", path: "/" },
+              { name: "Servicios", path: "/servicios" },
+              { name: "Planes", path: "/planes" },
+              { name: "Contacto", path: "/contacto" }
+            ].map((tab) => {
+              const isActive = location.pathname === tab.path;
+              return (
+                <li key={tab.name}>
+                  <Link
+                    to={tab.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`w-full text-left font-sans text-base font-semibold transition-colors py-2 block ${
+                      isActive ? "text-primary border-l-2 border-primary pl-3 bg-primary/5 rounded-r-lg" : "text-on-surface-variant hover:text-primary pl-3"
+                    }`}
+                  >
+                    {tab.name}
+                  </Link>
+                </li>
+              );
+            })}
             <li className="pt-4 border-t border-outline-variant/10">
               <button
-                onClick={() => scrollToSection("contacto")}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  navigate("/contacto");
+                }}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-secondary-container to-primary-container text-white font-sans font-semibold text-sm"
               >
                 Empezar <ArrowRight className="w-4 h-4" />
