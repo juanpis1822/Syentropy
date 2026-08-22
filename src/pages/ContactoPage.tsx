@@ -56,7 +56,7 @@ export default function ContactoPage() {
                 key={idx}
                 className="glass-premium rounded-2xl p-5 flex items-center gap-4 hover:border-surface-tint/30 transition-all duration-300 group"
               >
-                <div className={`w-11 h-11 rounded-xl bg-surface-container-high border border-outline-variant/20 flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform`}>
+                <div className={`w-11 h-11 shrink-0 rounded-xl bg-surface-container-high border border-outline-variant/20 flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform`}>
                   {item.icon}
                 </div>
                 <div>
