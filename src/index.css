@@ -6,12 +6,12 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* Deep Luxury Dark Mode Backgrounds */
-  --color-background: #030508;
-  --color-surface-container: #0a0e14;
-  --color-surface-container-high: #121822;
-  --color-surface-container-highest: #1a2330;
-  --color-surface-container-lowest: #010204;
-  --color-surface-container-low: #06090d;
+  --color-background: #040810;
+  --color-surface-container: #0c1219;
+  --color-surface-container-high: #141c28;
+  --color-surface-container-highest: #1e2938;
+  --color-surface-container-lowest: #020406;
+  --color-surface-container-low: #080c12;
   
   /* Corporate Colors based on Logo (Deep Blue to Bright Cyan) */
   --color-primary: #15c6e6; /* Bright Cyan from logo */
@@ -69,11 +69,13 @@ html {
 }
 
 .glass-premium {
-  background: linear-gradient(145deg, rgba(18, 24, 34, 0.6) 0%, rgba(10, 14, 20, 0.4) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, rgba(20, 28, 40, 0.7) 0%, rgba(12, 18, 25, 0.5) 100%);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 
+    0 16px 40px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
   position: relative;
 }
 

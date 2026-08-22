@@ -155,7 +155,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
                     <option value="automatizacion" className="bg-surface-container-high text-on-surface">Automatización de Procesos (WABA, Bots, APIS)</option>
                     <option value="desarrollo" className="bg-surface-container-high text-on-surface">Desarrollo Web / App a la medida (Next.js, FastAPI)</option>
                     <option value="diseno" className="bg-surface-container-high text-on-surface">Diseño UI/UX (Prototipos Figma de alta fidelidad)</option>
-                    <option value="consultoria" className="bg-surface-container-high text-on-surface">Consultoría General & Analítica (Certificaciones IBM)</option>
+                    <option value="consultoria" className="bg-surface-container-high text-on-surface">Consultoría General & Analítica Avanzada</option>
                   </select>
                 </div>
               </div>

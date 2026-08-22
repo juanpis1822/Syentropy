@@ -6,7 +6,7 @@ export default function ContactoPage() {
   return (
     <>
       {/* Contact Hero Banner */}
-      <section className="relative py-20 md:py-28 px-6 md:px-12 overflow-hidden">
+      <section className="relative py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 overflow-hidden">
         {/* Background ambient */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-[-30%] right-[-10%] w-[700px] h-[700px] bg-primary/10 rounded-full blur-[180px]"></div>
@@ -27,7 +27,7 @@ export default function ContactoPage() {
               </span>
             </span>
             
-            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl font-extrabold text-on-surface tracking-tighter mb-6 leading-[1.1]">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-on-surface tracking-tighter mb-4 sm:mb-6 leading-[1.1]">
               Hablemos de tu{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-surface-tint to-primary text-glow">
                 próximo proyecto

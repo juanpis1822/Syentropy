@@ -7,7 +7,7 @@ export default function Team() {
     {
       name: "Nicolás Martínez Pineda",
       role: "CEO / Líder Técnico",
-      description: "Especialista en transformación de datos con certificación de IBM. Formación sólida y rigurosa en la Univ. Distrital.",
+      description: "Especialista en transformación de datos y arquitectura de soluciones empresariales. Lidera la visión técnica y estratégica de Syentropy.",
       avatarIcon: "CEO",
       colorClass: "border-primary/30 text-primary hover:border-primary/60",
     },
@@ -44,7 +44,7 @@ export default function Team() {
             Nuestro Equipo
           </h2>
           <p className="font-sans text-base text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-            Talento multidisciplinario forjado en la Universidad Distrital.
+            Talento multidisciplinario con visión de vanguardia tecnológica.
           </p>
         </div>
 
@@ -86,10 +86,10 @@ export default function Team() {
                 {m.description}
               </p>
               
-              {/* Certified Sub badge */}
-              <div className="mt-5 pt-3.5 border-t border-white/5 w-full">
-                <span className="text-[10px] text-on-surface-variant/60 font-medium font-sans">
-                  Universidad Distrital
+              {/* Skills badge */}
+              <div className="mt-5 pt-3.5 border-t border-white/5 w-full flex items-center justify-center gap-2">
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-on-surface-variant/70 font-medium font-sans">
+                  Syentropy Core
                 </span>
               </div>
             </motion.div>

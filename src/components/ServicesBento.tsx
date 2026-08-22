@@ -65,7 +65,7 @@ export default function ServicesBento() {
       id: "data",
       icon: "chart",
       title: "Analítica de Datos / BI",
-      description: "Servicio liderado por talento certificado por IBM. Transformamos datos crudos en insights accionables para respaldar decisiones estratégicas.",
+      description: "Transformamos datos crudos en insights accionables con herramientas de vanguardia para respaldar decisiones estratégicas de negocio.",
       bullets: [
         "Cuadros de mando (Dashboards) interactivos",
         "Minería, preparación y modelado de datos",

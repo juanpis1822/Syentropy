@@ -15,7 +15,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden px-6 md:px-12 py-16 md:py-24 select-none">
+    <section className="relative min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24 select-none">
       {/* Animated Mesh Background */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-surface-container-lowest overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
@@ -70,7 +70,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-sans text-5xl sm:text-6xl md:text-[5.5rem] font-extrabold text-on-surface tracking-[-0.04em] mb-8 leading-[1.05]"
+          className="font-sans text-3xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-extrabold text-on-surface tracking-[-0.04em] mb-6 sm:mb-8 leading-[1.1] sm:leading-[1.05]"
         >
           Sinergia perfecta entre <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-surface-tint to-primary animate-shimmer text-glow">
@@ -93,11 +93,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto px-4 z-10"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto px-2 sm:px-4 z-10"
         >
           <button
             onClick={() => scrollToSection("servicios")}
-            className="group inline-flex items-center justify-center gap-2.5 px-10 py-4.5 rounded-full bg-gradient-to-r from-primary-container to-primary text-white font-sans font-semibold hover:shadow-[0_0_50px_rgba(21,198,230,0.5)] hover:scale-[1.03] transition-all duration-300 relative overflow-hidden active:scale-95 cursor-pointer text-[15px]"
+            className="group inline-flex items-center justify-center gap-2 sm:gap-2.5 px-7 sm:px-10 py-4 sm:py-4.5 rounded-full bg-gradient-to-r from-primary-container to-primary text-white font-sans font-semibold hover:shadow-[0_0_50px_rgba(21,198,230,0.5)] hover:scale-[1.03] transition-all duration-300 relative overflow-hidden active:scale-95 cursor-pointer text-sm sm:text-[15px]"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></span>
             Explorar Servicios
@@ -106,7 +106,7 @@ export default function Hero() {
           
           <button
             onClick={() => scrollToSection("contacto")}
-            className="inline-flex items-center justify-center gap-2.5 px-10 py-4.5 rounded-full glass-premium text-on-surface hover:border-surface-tint/50 transition-all duration-300 font-sans font-semibold group active:scale-95 cursor-pointer text-[15px] animate-border-glow"
+            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-7 sm:px-10 py-4 sm:py-4.5 rounded-full glass-premium text-on-surface hover:border-surface-tint/50 transition-all duration-300 font-sans font-semibold group active:scale-95 cursor-pointer text-sm sm:text-[15px] animate-border-glow"
           >
             Agendar Consultoría
             <Calendar className="w-4 h-4 text-surface-tint group-hover:rotate-12 group-hover:scale-110 transition-transform" />
@@ -118,19 +118,21 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="mt-16 flex items-center gap-8 text-on-surface-variant/50 text-xs font-sans"
+          className="mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 text-on-surface-variant/50 text-[10px] sm:text-xs font-sans"
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-            <span>Sistemas Operativos 24/7</span>
+            <span>Infraestructura 24/7</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-outline-variant/30"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <span>+5 Proyectos Desplegados</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-outline-variant/30"></div>
           <div className="hidden sm:flex items-center gap-2">
-            <span>Certificación IBM</span>
-          </div>
-          <div className="hidden sm:block w-px h-4 bg-outline-variant/30"></div>
-          <div className="hidden sm:flex items-center gap-2">
-            <span>Universidad Distrital</span>
+            <div className="w-2 h-2 rounded-full bg-secondary/60 animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <span>Bogotá, Colombia</span>
           </div>
         </motion.div>
       </div>

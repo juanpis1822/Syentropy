@@ -1,14 +1,30 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 
 export default function Layout() {
+  const { pathname } = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
   return (
     <div className="bg-background text-on-surface font-sans min-h-screen relative antialiased selection:bg-surface-tint selection:text-background overflow-x-hidden flex flex-col">
       
-      {/* Absolute high-end starry aesthetic dot grid layout overlay */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.01)_1.5px,transparent_1.5px)] bg-[size:32px_32px]"></div>
+      {/* Multi-layer animated background */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {/* Dot grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
+        
+        {/* Ambient gradient orbs that add depth to the dark background */}
+        <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-primary-container/[0.04] rounded-full blur-[200px] animate-mesh"></div>
+        <div className="absolute bottom-[5%] right-[-5%] w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-[180px] animate-mesh" style={{ animationDelay: '8s' }}></div>
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/[0.02] rounded-full blur-[220px] animate-float"></div>
+        
+        {/* Subtle horizontal light beam */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
       </div>
 
       <Navbar />
