@@ -1,4 +1,5 @@
 import { User } from "lucide-react";
+import { motion } from "motion/react";
 import { TeamMember } from "../types";
 
 export default function Team() {
@@ -50,15 +51,20 @@ export default function Team() {
         {/* Members Grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {members.map((m, idx) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              whileHover={{ y: -10, rotateX: 5, rotateY: -5 }}
+              style={{ transformPerspective: 800 }}
               key={idx}
-              className={`glass-panel p-8 rounded-[2rem] flex flex-col items-center text-center border transition-all duration-300 relative group overflow-hidden ${m.colorClass}`}
+              className={`glass-panel p-8 rounded-[2rem] flex flex-col items-center text-center border transition-all duration-300 relative group overflow-hidden card-hover-lift ${m.colorClass}`}
             >
               {/* Soft background glow circles inside cards */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-28 bg-white/[0.01] rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
 
               {/* Avatar Photo Frame with user icon */}
-              <div className="relative w-24 h-24 rounded-full bg-surface-container-high mb-6 flex items-center justify-center border-2 border-outline-variant/20 group-hover:border-current transition-colors">
+              <div className="relative w-24 h-24 rounded-full bg-surface-container-high mb-6 flex items-center justify-center border-2 border-outline-variant/20 group-hover:border-current group-hover:shadow-[0_0_20px_currentColor] transition-all duration-300">
                 <User className="w-10 h-10 text-on-surface-variant/80 group-hover:scale-105 transition-transform" />
                 
                 {/* Floating circular label role indicators */}
@@ -86,7 +92,7 @@ export default function Team() {
                   Universidad Distrital
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

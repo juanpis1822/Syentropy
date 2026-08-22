@@ -1,5 +1,6 @@
 import { Server, Monitor, Cpu, Database } from "lucide-react";
 import { TechItem } from "../types";
+import { motion } from "motion/react";
 
 export default function TechStack() {
   const stack: TechItem[] = [
@@ -43,8 +44,10 @@ export default function TechStack() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
-      <div className="max-w-7xl mx-auto">
+    <>
+      <div className="section-divider"></div>
+      <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}
         <div className="text-center mb-16">
@@ -59,11 +62,16 @@ export default function TechStack() {
         {/* Stack Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stack.map((item, idx) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -6, scale: 1.03 }}
               key={idx}
-              className={`glass-panel p-6 md:p-8 rounded-[2rem] flex flex-col items-center text-center border transition-all duration-300 hover:scale-[1.03] hover:border-surface-tint/30 group ${item.colorClass}`}
+              className={`glass-panel p-6 md:p-8 rounded-[2rem] flex flex-col items-center text-center border transition-all duration-300 hover:border-surface-tint/30 group ${item.colorClass}`}
             >
-              <div className="mb-4 text-on-surface-variant group-hover:text-current transition-colors">
+              <div className="mb-4 text-on-surface-variant group-hover:text-current transition-all duration-300 transform group-hover:scale-110">
                 {renderIcon(item.icon)}
               </div>
               <h4 className="font-sans font-semibold text-on-surface text-base md:text-lg mb-2">
@@ -72,11 +80,12 @@ export default function TechStack() {
               <p className="font-sans text-xs md:text-sm text-on-surface-variant/80 font-light font-mono select-all">
                 {item.tools}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
       </div>
     </section>
+    </>
   );
 }

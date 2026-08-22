@@ -74,10 +74,12 @@ export default function Plans({ onSelectPlan }: PlansProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
           {plans.map((p, idx) => (
             <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeOut" }}
               key={idx}
-              className={`glass-premium p-5 md:p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-colors duration-300 relative cursor-pointer ${p.colorClass}`}
+              className={`glass-premium p-5 md:p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-colors duration-300 relative cursor-pointer ${p.colorClass} ${p.isRecommended ? 'animate-border-glow' : ''}`}
             >
               {/* Highlight Recommended Badge */}
               {p.isRecommended && p.badge && (
@@ -116,13 +118,16 @@ export default function Plans({ onSelectPlan }: PlansProps) {
               {/* Action Button */}
               <button
                 onClick={() => onSelectPlan(p.name)}
-                className={`w-full text-center py-3 rounded-xl font-sans font-semibold text-sm transition-all cursor-pointer ${
+                className={`relative overflow-hidden group w-full text-center py-3 rounded-xl font-sans font-semibold text-sm transition-all cursor-pointer ${
                   p.isRecommended
                     ? "bg-gradient-to-r from-primary-container to-secondary-container text-white shadow-[0_0_20px_rgba(0,180,255,0.2)] hover:shadow-[0_0_25px_rgba(0,210,255,0.4)] transform active:scale-95"
                     : "bg-surface-container-high text-on-surface hover:bg-surface-tint hover:text-background transform active:scale-95"
                 }`}
               >
-                Solicitar Info
+                <span className="relative z-10">Solicitar Info</span>
+                {p.isRecommended && (
+                  <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out"></div>
+                )}
               </button>
             </motion.div>
           ))}

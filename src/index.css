@@ -119,3 +119,80 @@ html {
   animation: float 8s ease-in-out infinite;
 }
 
+/* Animated gradient border */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(21, 198, 230, 0.3); box-shadow: 0 0 20px rgba(21, 198, 230, 0.1); }
+  50% { border-color: rgba(43, 88, 161, 0.5); box-shadow: 0 0 30px rgba(43, 88, 161, 0.15); }
+}
+
+.animate-border-glow {
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+/* Gradient text shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 6s linear infinite;
+}
+
+/* Pulse ring effect */
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 3s ease-in-out infinite;
+}
+
+/* Gradient mesh background */
+@keyframes meshMove {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -20px) rotate(5deg); }
+  50% { transform: translate(-20px, 30px) rotate(-3deg); }
+  75% { transform: translate(20px, 20px) rotate(3deg); }
+}
+
+.animate-mesh {
+  animation: meshMove 20s ease-in-out infinite;
+}
+
+/* Tilt card hover effect */
+.card-hover-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px -15px rgba(21, 198, 230, 0.2);
+}
+
+/* Section divider glow */
+.section-divider {
+  position: relative;
+}
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(21, 198, 230, 0.4), rgba(43, 88, 161, 0.4), transparent);
+}
+
+/* Animated counter */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count-up {
+  animation: countUp 0.6s ease-out forwards;
+}

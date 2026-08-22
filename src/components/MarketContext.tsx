@@ -1,9 +1,39 @@
 import { AlertTriangle, Lightbulb, CheckCircle2 } from "lucide-react";
+import { motion, useInView } from "motion/react";
+import { useState, useEffect, useRef } from "react";
 
-export default function MarketContext() {
+const AnimatedCounter = ({ end, suffix = "" }: { end: number, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  
+  useEffect(() => {
+    if (!isInView) return;
+    let start = 0;
+    const duration = 2000;
+    const increment = end / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    
+    return () => clearInterval(timer);
+  }, [end, isInView]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};export default function MarketContext() {
   return (
-    <section id="contexto" className="py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
-      <div className="max-w-7xl mx-auto">
+    <>
+      <div className="section-divider"></div>
+      <section id="contexto" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-outline-variant/10 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none -z-10"></div>
+        <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}
         <div className="text-center mb-16">
@@ -13,13 +43,28 @@ export default function MarketContext() {
           <p className="font-sans text-base text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
             Entendemos la realidad operativa de los negocios en Colombia y ofrecemos soluciones estratégicas para superar la brecha tecnológica.
           </p>
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-6 inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full"
+          >
+            <span className="text-primary font-bold text-lg"><AnimatedCounter end={85} suffix="%" /></span>
+            <span className="text-on-surface-variant text-sm font-medium">de empresas aceleran su crecimiento al digitalizarse</span>
+          </motion.div>
         </div>
 
         {/* Content Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Column 1: El Desafío Actual */}
-          <div className="glass-panel p-8 md:p-10 rounded-[2rem] flex flex-col hover:border-error/30 transition-all duration-300 relative overflow-hidden group">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass-panel p-8 md:p-10 rounded-[2rem] flex flex-col hover:border-error/30 transition-all duration-300 relative overflow-hidden group"
+          >
             {/* Top-right subtle flare */}
             <div className="absolute -top-12 -right-12 w-24 h-24 bg-error-container/10 rounded-full blur-2xl group-hover:bg-error-container/20 transition-all"></div>
             
@@ -34,10 +79,16 @@ export default function MarketContext() {
             <p className="font-sans text-on-surface-variant leading-relaxed text-[15px] font-light">
               Las empresas tradicionales enfrentan procesos manuales ineficientes, dependencia de herramientas informales (como WhatsApp sin estructurar) y una alta necesidad de automatización que a menudo resulta inaccesible por costos o complejidad técnica.
             </p>
-          </div>
+          </motion.div>
 
           {/* Column 2: Nuestra Respuesta Estratégica */}
-          <div className="glass-panel p-8 md:p-10 rounded-[2rem] flex flex-col hover:border-surface-tint/30 transition-all duration-300 relative overflow-hidden group">
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-panel p-8 md:p-10 rounded-[2rem] flex flex-col hover:border-surface-tint/30 transition-all duration-300 relative overflow-hidden group"
+          >
             {/* Top-right subtle flare */}
             <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/10 rounded-full blur-3xl group-hover:bg-primary-container/20 transition-all"></div>
             
@@ -79,11 +130,12 @@ export default function MarketContext() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
         </div>
 
       </div>
     </section>
+    </>
   );
 }

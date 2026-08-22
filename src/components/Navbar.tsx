@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,7 +38,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-outline-variant/20 py-4 shadow-xl"
+          ? "bg-background/80 backdrop-blur-md border-b border-outline-variant/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent py-6"
       }`}
     >
@@ -110,9 +111,15 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Panel */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-outline-variant/30 py-6 px-6 slide-in-top">
-          <ul className="flex flex-col space-y-4">
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-outline-variant/30 py-6 px-6"
+          >
+            <ul className="flex flex-col space-y-4">
             {[
               { name: "Inicio", path: "/" },
               { name: "Servicios", path: "/servicios" },
@@ -146,8 +153,9 @@ export default function Navbar() {
               </button>
             </li>
           </ul>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

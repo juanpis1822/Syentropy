@@ -125,30 +125,33 @@ export default function ServicesBento() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              whileHover={{ y: -5, scale: 1.01 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               key={svc.id}
               className={`glass-premium p-6 md:p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass} ${svc.spanClass || ""}`}
               onClick={() => setSelectedService(svc)}
             >
+              {/* Subtle hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
+
               {/* Animated corner light effect */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-white/2 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/2 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform z-0"></div>
 
               {/* Icon Container */}
-              <div className="w-14 h-14 rounded-2xl bg-surface-container-high border border-outline-variant/20 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:shadow-2xl transition-all">
+              <div className="w-14 h-14 rounded-2xl bg-surface-container-high border border-outline-variant/20 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:shadow-2xl group-hover:animate-pulse transition-all relative z-10">
                 {renderIcon(svc.icon)}
               </div>
 
               {/* Title & Desc */}
-              <h3 className="font-sans text-xl font-semibold text-on-surface mb-3 tracking-tight group-hover:text-primary transition-colors">
+              <h3 className="font-sans text-xl font-semibold text-on-surface mb-3 tracking-tight group-hover:text-primary transition-colors relative z-10">
                 {svc.title}
               </h3>
-              <p className="font-sans text-xs md:text-sm text-on-surface-variant mb-6 leading-relaxed flex-grow font-light">
+              <p className="font-sans text-xs md:text-sm text-on-surface-variant mb-6 leading-relaxed flex-grow font-light relative z-10">
                 {svc.description}
               </p>
 
               {/* Quick Bullets Preview */}
-              <div className="pt-4 border-t border-white/5 space-y-2.5 mt-auto">
+              <div className="pt-4 border-t border-white/5 space-y-2.5 mt-auto relative z-10">
                 {svc.bullets.slice(0, 2).map((b, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-[13px] text-on-surface font-light">
                     <span className="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
@@ -158,7 +161,7 @@ export default function ServicesBento() {
               </div>
 
               {/* Action Trigger */}
-              <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-surface-tint group-hover:translate-x-1 transition-transform self-start">
+              <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-surface-tint group-hover:translate-x-1 transition-transform self-start relative z-10">
                 <span>Ver detalles</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
