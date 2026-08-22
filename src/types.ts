@@ -5,6 +5,7 @@ export interface ServiceItem {
   description: string;
   bullets: string[];
   colorClass: string;
+  spanClass?: string;
 }
 
 export interface PlanItem {

@@ -39,7 +39,7 @@ export default function Layout() {
           <div className="flex gap-6 text-xs text-on-surface-variant/80 font-mono">
             <Link to="/servicios" className="hover:text-primary transition-colors">Servicios</Link>
             <Link to="/planes" className="hover:text-primary transition-colors">Planes</Link>
-            <Link to="/planes" className="hover:text-primary transition-colors">Contacto</Link>
+            <Link to="/contacto" className="hover:text-primary transition-colors">Contacto</Link>
             <Link to="/privacidad" className="hover:text-primary transition-colors">Privacidad</Link>
           </div>
         </div>
