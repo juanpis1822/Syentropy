@@ -45,6 +45,7 @@ export default function ServicesBento() {
         "Optimización SEO y Web Vitals avanzada"
       ],
       colorClass: "from-cyan-400 to-sky-500 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.15)] bg-cyan-400/5 hover:border-cyan-400/30",
+      spanClass: "lg:col-span-2",
     },
     {
       id: "auto",
@@ -58,6 +59,7 @@ export default function ServicesBento() {
         "Sistemas OCR y procesamiento de documentos"
       ],
       colorClass: "from-indigo-400 to-purple-500 text-indigo-400 shadow-[0_0_20px_rgba(129,140,248,0.15)] bg-indigo-400/5 hover:border-indigo-400/30",
+      spanClass: "lg:col-span-1",
     },
     {
       id: "data",
@@ -71,6 +73,7 @@ export default function ServicesBento() {
         "Automatización de reportes semanales/mensuales"
       ],
       colorClass: "from-teal-400 to-emerald-500 text-teal-400 shadow-[0_0_20px_rgba(45,212,191,0.15)] bg-teal-400/5 hover:border-teal-400/30",
+      spanClass: "lg:col-span-1",
     },
     {
       id: "support",
@@ -84,6 +87,7 @@ export default function ServicesBento() {
         "Consultoría en transformación digital"
       ],
       colorClass: "from-blue-400 to-indigo-500 text-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.15)] bg-blue-400/5 hover:border-blue-400/30",
+      spanClass: "lg:col-span-2",
     }
   ];
 
@@ -115,13 +119,16 @@ export default function ServicesBento() {
         </div>
 
         {/* Bento Grid layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {services.map((svc) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {services.map((svc, index) => (
             <motion.div
-              whileHover={{ y: -5, scale: 1.02 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ y: -5, scale: 1.01 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               key={svc.id}
-              className={`glass-premium p-6 md:p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass}`}
+              className={`glass-premium p-6 md:p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass} ${svc.spanClass || ""}`}
               onClick={() => setSelectedService(svc)}
             >
               {/* Animated corner light effect */}

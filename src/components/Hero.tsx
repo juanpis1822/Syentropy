@@ -25,10 +25,10 @@ export default function Hero() {
         {/* Background Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-60 mix-blend-screen"></div>
         
-        {/* Animated Radial Orbs - Hidden on mobile for cleaner UI */}
-        <div className="hidden md:block absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[160px] animate-float"></div>
-        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[140px] animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="hidden md:block absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-surface-tint/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '4s' }}></div>
+        {/* Animated Radial Orbs - Deep Blue & Cyan based on Corporate Logo */}
+        <div className="hidden md:block absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-primary-container/20 rounded-full blur-[160px] animate-float"></div>
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[140px] animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="hidden md:block absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-surface-tint/15 rounded-full blur-[120px] animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Main Container */}
@@ -48,13 +48,13 @@ export default function Hero() {
 
         {/* Big Title */}
         <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold text-on-surface tracking-tight mb-6 leading-tight"
+          initial={{ opacity: 0, y: 35, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="font-sans text-4xl sm:text-5xl md:text-7xl font-extrabold text-on-surface tracking-tighter mb-6 leading-[1.1]"
         >
           Sinergia perfecta entre <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-surface-tint to-secondary">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-surface-tint to-primary text-glow drop-shadow-sm">
             Automatización y Diseño
           </span>
         </motion.h1>
@@ -71,14 +71,14 @@ export default function Hero() {
 
         {/* Interactive Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 z-10"
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto px-4 z-10"
         >
           <button
             onClick={() => scrollToSection("servicios")}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-white font-sans font-semibold hover:shadow-[0_0_30px_rgba(0,210,255,0.4)] transition-all duration-300 relative group overflow-hidden active:scale-95 cursor-pointer text-[15px]"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary-container to-primary text-white font-sans font-semibold hover:shadow-[0_0_40px_rgba(21,198,230,0.5)] hover:scale-105 transition-all duration-300 relative group overflow-hidden active:scale-95 cursor-pointer text-[15px]"
           >
             Explorar Servicios
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -86,10 +86,10 @@ export default function Hero() {
           
           <button
             onClick={() => scrollToSection("contacto")}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full glass-panel text-on-surface hover:bg-surface-container-high hover:border-surface-tint/40 transition-all duration-300 font-sans font-semibold group active:scale-95 cursor-pointer text-[15px]"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full glass-panel text-on-surface hover:bg-surface-container-highest hover:border-surface-tint/50 transition-all duration-300 font-sans font-semibold group active:scale-95 cursor-pointer text-[15px] hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
           >
             Agendar Consultoría
-            <Calendar className="w-4 h-4 text-secondary group-hover:rotate-12 transition-transform" />
+            <Calendar className="w-4 h-4 text-surface-tint group-hover:rotate-12 group-hover:scale-110 transition-transform" />
           </button>
         </motion.div>
       </div>
