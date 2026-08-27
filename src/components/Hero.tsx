@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight, Calendar, ArrowDown, Zap } from "lucide-react";
+import Hero3DBackground from "./Hero3DBackground";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -16,24 +17,13 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24 select-none">
-      {/* Animated Mesh Background with 3D Asset */}
-      <div className="absolute inset-0 z-0 pointer-events-none bg-surface-container-lowest overflow-hidden">
-        {/* 3D Hero Concept Image integrated into the background */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.6, scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-[100vw] min-h-[100vh]"
-        >
-          <img 
-            src="/hero-3d.jpg" 
-            alt="" 
-            className="w-full h-full object-cover mix-blend-lighten blur-[2px] opacity-40 md:opacity-50"
-          />
-        </motion.div>
+      {/* Animated Mesh Background with Interactive 3D Canvas */}
+      <div className="absolute inset-0 z-0 bg-surface-container-lowest overflow-hidden">
+        {/* Interactive 3D Background */}
+        <Hero3DBackground />
         
-        <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest pointer-events-none"></div>
         
         {/* Animated gradient mesh orbs */}
         <div className="hidden md:block absolute top-[-25%] left-[15%] w-[900px] h-[900px] bg-primary-container/25 rounded-full blur-[180px] animate-mesh"></div>

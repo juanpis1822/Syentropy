@@ -113,11 +113,25 @@ export default function CaseStudies() {
                   </div>
                 ) : (
                   /* Smartphone App Mock Visualizer element */
-                  <div className="w-3/5 h-[95%] border border-outline-variant/25 rounded-t-[2.5rem] bg-background overflow-hidden shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500 relative">
-                    <img src="/app-mockup.jpg" alt="App Mockup" className="absolute inset-0 w-full h-full object-cover" />
-                    {/* Mock speaker overlay */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 flex justify-center z-10">
-                      <div className="w-1/2 h-1.5 bg-black/60 rounded-full backdrop-blur-md border border-white/10"></div>
+                  <div className="w-3/5 h-[95%] border border-outline-variant/25 rounded-t-[2.5rem] bg-background overflow-hidden shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500 p-4 flex flex-col">
+                    {/* Mock speaker */}
+                    <div className="w-16 h-1 w-full flex justify-center mb-5 shrink-0">
+                      <div className="w-1/3 h-1 bg-outline-variant/30 rounded-full"></div>
+                    </div>
+                    {/* Mobile App Grid layout mock */}
+                    <div className="flex-1 flex flex-col gap-3 min-h-0">
+                      <div className="glass-panel p-3 rounded-2xl relative overflow-hidden bg-secondary-container/10 border-secondary/20 flex-1">
+                        <Smartphone className="w-5 h-5 text-secondary mb-2" />
+                        <div className="w-3/4 h-2 bg-surface-container-highest rounded"></div>
+                        <div className="w-1/2 h-1.5 bg-surface-container-highest/60 rounded mt-1"></div>
+                      </div>
+                      <div className="flex gap-3 shrink-0">
+                        <div className="w-10 h-10 rounded-full glass-panel border border-outline-variant/25 flex items-center justify-center font-mono text-[9px] text-secondary font-bold">IA</div>
+                        <div className="flex-1 flex flex-col justify-center gap-1.5">
+                          <div className="w-5/6 h-2 bg-surface-container-highest rounded"></div>
+                          <div className="w-2/3 h-1.5 bg-surface-container-highest/60 rounded"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}

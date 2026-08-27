@@ -103,17 +103,34 @@ export default function Plans({ onSelectPlan }: PlansProps) {
                 </span>
               </div>
 
-              {/* Bullets List */}
-              <ul className="space-y-3.5 flex-grow mb-8">
+              {/* Bullets List (Staggered Animation) */}
+              <motion.ul 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
+                  hidden: {}
+                }}
+                className="space-y-3.5 flex-grow mb-8"
+              >
                 {p.bullets.map((b, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-2.5 text-sm text-on-surface/90">
+                  <motion.li 
+                    key={bIdx}
+                    variants={{
+                      hidden: { opacity: 0, x: -10 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-start gap-2.5 text-sm text-on-surface/90 group-hover:text-white transition-colors"
+                  >
                     <div className="mt-0.5 max-w-[18px] shrink-0">
                       <Check className="w-4 h-4 text-surface-tint" />
                     </div>
                     <span className="font-light leading-snug">{b}</span>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
 
               {/* Action Button */}
               <button
