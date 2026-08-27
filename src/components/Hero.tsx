@@ -16,15 +16,30 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24 select-none">
-      {/* Animated Mesh Background */}
+      {/* Animated Mesh Background with 3D Asset */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-surface-container-lowest overflow-hidden">
+        {/* 3D Hero Concept Image integrated into the background */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 0.6, scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-[100vw] min-h-[100vh]"
+        >
+          <img 
+            src="/hero-3d.jpg" 
+            alt="" 
+            className="w-full h-full object-cover mix-blend-lighten blur-[2px] opacity-40 md:opacity-50"
+          />
+        </motion.div>
+        
         <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest"></div>
         
         {/* Animated gradient mesh orbs */}
         <div className="hidden md:block absolute top-[-25%] left-[15%] w-[900px] h-[900px] bg-primary-container/25 rounded-full blur-[180px] animate-mesh"></div>
-        <div className="hidden md:block absolute bottom-[-15%] right-[-15%] w-[700px] h-[700px] bg-primary/15 rounded-full blur-[160px] animate-mesh" style={{ animationDelay: '5s' }}></div>
-        <div className="hidden md:block absolute top-[20%] right-[20%] w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[120px] animate-mesh" style={{ animationDelay: '10s' }}></div>
-        <div className="hidden md:block absolute bottom-[20%] left-[-5%] w-[500px] h-[500px] bg-surface-tint/10 rounded-full blur-[140px] animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="hidden md:block absolute bottom-[-15%] right-[-15%] w-[700px] h-[700px] bg-secondary/25 rounded-full blur-[160px] animate-mesh" style={{ animationDelay: '5s' }}></div>
+        <div className="hidden md:block absolute top-[20%] right-[20%] w-[400px] h-[400px] bg-tertiary/20 rounded-full blur-[120px] animate-mesh" style={{ animationDelay: '10s' }}></div>
+        <div className="hidden md:block absolute bottom-[20%] left-[-5%] w-[500px] h-[500px] bg-surface-tint/20 rounded-full blur-[140px] animate-float" style={{ animationDelay: '3s' }}></div>
         
         {/* Floating particles */}
         {[...Array(6)].map((_, i) => (

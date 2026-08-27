@@ -19,15 +19,16 @@
   --color-primary-container: #2b58a1; /* Deep Blue from logo */
   --color-on-primary-container: #dff2ff;
   
-  --color-secondary: #588beb;
-  --color-on-secondary: #002255;
-  --color-secondary-container: #1b3d7a;
-  --color-on-secondary-container: #c4d7ff;
+  /* Vibrant Accents */
+  --color-secondary: #c026d3; /* Vibrant Fuchsia/Purple */
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #701a75;
+  --color-on-secondary-container: #fae8ff;
   
-  --color-tertiary: #92d8e8;
-  --color-on-tertiary: #003642;
-  --color-tertiary-container: #004e5f;
-  --color-on-tertiary-container: #b4ebfa;
+  --color-tertiary: #10b981; /* Emerald/Mint Neon */
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #064e3b;
+  --color-on-tertiary-container: #d1fae5;
 
   --color-surface-tint: #15c6e6;
   --color-on-surface: #f0f3f5;
