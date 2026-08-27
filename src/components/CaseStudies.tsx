@@ -59,16 +59,6 @@ export default function CaseStudies() {
               Ejecuciones de alta fidelidad que combinan lógica y estética.
             </p>
           </div>
-          <button
-            onClick={() => {
-              const el = document.getElementById("contacto");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="group inline-flex items-center gap-2 text-primary hover:text-surface-tint font-sans font-semibold transition-colors mt-6 md:mt-0 text-sm cursor-pointer"
-          >
-            Ver todo el portafolio
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
         </div>
 
         {/* Mocks Grid */}
@@ -172,7 +162,7 @@ export default function CaseStudies() {
               className="fixed top-[80px] left-0 right-0 bottom-0 z-[100] flex justify-center p-4 md:p-8 bg-background/90 backdrop-blur-md overflow-y-auto custom-scroller"
               onClick={() => setSelectedCase(null)}
             >
-              <div className="flex items-start md:items-center justify-center min-h-full w-full max-w-2xl py-4">
+              <div className="flex items-start justify-center min-h-full w-full max-w-2xl py-4">
                 <div
                   className="w-full glass-panel rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 bg-surface-container-low p-6 md:p-10 relative animate-fadeIn"
                   onClick={(e) => e.stopPropagation()}
