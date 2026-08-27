@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronUp } from 'lucide-react';
 
-export const ScrollToTopButton: React.FC = () => {
+export const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 400) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > 400);
     };
 
     window.addEventListener('scroll', toggleVisibility, { passive: true });
@@ -19,26 +15,28 @@ export const ScrollToTopButton: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          transition={{ duration: 0.25 }}
           onClick={scrollToTop}
           aria-label="Volver arriba"
-          className="fixed bottom-6 right-6 z-40 w-12 h-12 flex items-center justify-center rounded-full glass-premium border border-surface-tint/30 transition-all duration-300 hover:border-surface-tint/60 hover:shadow-[0_0_20px_rgba(21,198,230,0.3)] cursor-pointer"
+          style={{
+            position: 'fixed',
+            bottom: '1.5rem',
+            right: '1.5rem',
+            zIndex: 9998,
+          }}
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high/80 backdrop-blur-md border border-surface-tint/30 hover:border-surface-tint/60 hover:shadow-[0_0_20px_rgba(21,198,230,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
         >
-          <ChevronUp className="w-6 h-6 text-surface-tint" />
+          <ChevronUp className="w-5 h-5 text-surface-tint" />
         </motion.button>
       )}
     </AnimatePresence>
