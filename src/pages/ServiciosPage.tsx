@@ -9,8 +9,8 @@ export default function ServiciosPage() {
       {/* Page Hero */}
       <section className="relative py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-20%] left-[30%] w-[600px] h-[600px] bg-primary-container/15 rounded-full blur-[160px]"></div>
-          <div className="absolute bottom-[-30%] right-[-5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px]"></div>
+          <div className="absolute top-[-20%] left-[30%] w-[600px] h-[600px] bg-secondary/15 rounded-full blur-[160px]"></div>
+          <div className="absolute bottom-[-30%] right-[-5%] w-[500px] h-[500px] bg-tertiary/10 rounded-full blur-[140px]"></div>
         </div>
         
         <motion.div

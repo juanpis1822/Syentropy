@@ -44,7 +44,7 @@ export default function ServicesBento() {
         "Configuración e implementación en la nube",
         "Optimización SEO y Web Vitals avanzada"
       ],
-      colorClass: "from-cyan-400 to-sky-500 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.15)] bg-cyan-400/5 hover:border-cyan-400/30",
+      colorClass: "from-primary to-primary-container text-primary shadow-[0_0_25px_rgba(21,198,230,0.2)] bg-primary/10 hover:border-primary/50 group-hover:bg-primary/15",
       spanClass: "lg:col-span-2",
     },
     {
@@ -58,7 +58,7 @@ export default function ServicesBento() {
         "Automatización de procesos (n8n, Make)",
         "Sistemas OCR y procesamiento de documentos"
       ],
-      colorClass: "from-indigo-400 to-purple-500 text-indigo-400 shadow-[0_0_20px_rgba(129,140,248,0.15)] bg-indigo-400/5 hover:border-indigo-400/30",
+      colorClass: "from-secondary to-fuchsia-600 text-secondary shadow-[0_0_25px_rgba(192,38,211,0.2)] bg-secondary/10 hover:border-secondary/50 group-hover:bg-secondary/15",
       spanClass: "lg:col-span-1",
     },
     {
@@ -72,7 +72,7 @@ export default function ServicesBento() {
         "Visualizaciones avanzadas de KPI comerciales",
         "Automatización de reportes semanales/mensuales"
       ],
-      colorClass: "from-teal-400 to-emerald-500 text-teal-400 shadow-[0_0_20px_rgba(45,212,191,0.15)] bg-teal-400/5 hover:border-teal-400/30",
+      colorClass: "from-tertiary to-emerald-600 text-tertiary shadow-[0_0_25px_rgba(16,185,129,0.2)] bg-tertiary/10 hover:border-tertiary/50 group-hover:bg-tertiary/15",
       spanClass: "lg:col-span-1",
     },
     {
@@ -86,7 +86,7 @@ export default function ServicesBento() {
         "Optimización de costos Cloud (AWS, GCP)",
         "Consultoría en transformación digital"
       ],
-      colorClass: "from-blue-400 to-indigo-500 text-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.15)] bg-blue-400/5 hover:border-blue-400/30",
+      colorClass: "from-blue-400 to-primary-container text-blue-400 shadow-[0_0_25px_rgba(96,165,250,0.2)] bg-blue-400/10 hover:border-blue-400/50 group-hover:bg-blue-400/15",
       spanClass: "lg:col-span-2",
     }
   ];
