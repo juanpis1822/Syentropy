@@ -88,7 +88,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-          className="font-sans text-base sm:text-lg md:text-xl text-on-surface-variant max-w-3xl mx-auto mb-12 leading-relaxed font-light"
+          className="font-sans text-base sm:text-lg md:text-xl text-white max-w-3xl mx-auto mb-12 leading-relaxed font-medium drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
         >
           Transformamos la complejidad operativa en experiencias digitales fluidas e intuitivas. Interfaces de alto rendimiento respaldadas por lógica de automatización avanzada.
         </motion.p>
