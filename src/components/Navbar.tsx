@@ -38,7 +38,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-outline-variant/20 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+          ? "bg-background/80 backdrop-blur-md border-b border-outline-variant py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent py-6"
       }`}
     >
@@ -103,7 +103,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-on-surface-variant hover:text-primary p-2 rounded-lg bg-surface-container/40 border border-outline-variant/10 active:scale-95 transition-all"
+          className="md:hidden text-on-surface-variant hover:text-primary p-2 rounded-lg bg-surface-container/40 border border-outline-variant active:scale-95 transition-all"
           id="mobile-menu-toggle"
         >
           {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -117,7 +117,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-outline-variant/30 py-6 px-6"
+            className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-outline-variant py-6 px-6"
           >
             <ul className="flex flex-col space-y-4">
             {[
@@ -141,7 +141,7 @@ export default function Navbar() {
                 </li>
               );
             })}
-            <li className="pt-4 border-t border-outline-variant/10">
+            <li className="pt-4 border-t border-outline-variant">
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);

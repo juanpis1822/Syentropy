@@ -149,7 +149,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
     if (touched[field] && !errors[field as keyof FormErrors]) {
       return `${base} input-success`;
     }
-    return `${base} border-outline-variant/40 focus:border-surface-tint`;
+    return `${base} border-outline-variant focus:border-surface-tint`;
   };
 
   return (
@@ -167,7 +167,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="glass-premium md:gradient-glow rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 border border-outline-variant/20 relative"
+              className="glass-premium md:gradient-glow rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 border-outline-variant relative"
             >
               <div className="text-center mb-8">
                 <h2 className="font-sans text-3xl md:text-4xl font-bold text-on-surface mb-3 tracking-tight">
@@ -278,7 +278,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
                       id="interest"
                       value={interest}
                       onChange={(e) => setInterest(e.target.value)}
-                      className="w-full bg-surface-container-high border border-outline-variant/40 rounded-2xl text-on-surface font-sans text-sm px-4 py-3.5 appearance-none focus:outline-none focus:border-surface-tint transition-all"
+                      className="w-full bg-surface-container-high border border-outline-variant rounded-2xl text-on-surface font-sans text-sm px-4 py-3.5 appearance-none focus:outline-none focus:border-surface-tint transition-all"
                     >
                       <option value="automatizacion" className="bg-surface-container-high text-on-surface">Automatización de Procesos (WABA, Bots, APIS)</option>
                       <option value="desarrollo" className="bg-surface-container-high text-on-surface">Desarrollo Web / App a la medida (Next.js, FastAPI)</option>
@@ -349,7 +349,7 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="glass-panel rounded-[2.5rem] p-8 md:p-12 border border-surface-tint/25 shadow-[0_0_40px_rgba(71,214,255,0.1)] bg-surface-container-lowest text-center relative overflow-hidden"
+              className="glass-panel rounded-[2.5rem] p-8 md:p-12 border-surface-tint/25 shadow-[0_0_40px_rgba(71,214,255,0.1)] bg-surface-container-lowest text-center relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-40 h-40 bg-surface-tint/10 rounded-full blur-[50px] pointer-events-none"></div>
               

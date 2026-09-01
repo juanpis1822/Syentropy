@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Top bar */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-surface-container-lowest/80 border-b border-outline-variant/10">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-surface-container-lowest/80 border-b border-outline-variant">
         <div className="max-w-4xl mx-auto flex items-center gap-4 px-6 py-4">
           <button
             onClick={() => navigate("/")}
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
       </header>
 
       <main className="relative z-10 max-w-4xl mx-auto px-6 py-12 md:py-20">
-        <div className="glass-premium rounded-[2rem] p-8 md:p-14 border border-outline-variant/15">
+        <div className="glass-premium rounded-[2rem] p-8 md:p-14 border-outline-variant">
           
           <h1 className="font-sans text-3xl md:text-4xl font-bold text-on-surface mb-2 tracking-tight">
             Política de Privacidad
@@ -266,7 +266,7 @@ export default function PrivacyPolicy() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 py-8 px-6 bg-surface-container-lowest border-t border-outline-variant/10 text-center">
+      <footer className="relative z-10 py-8 px-6 bg-surface-container-lowest border-t border-outline-variant text-center">
         <p className="text-xs text-on-surface-variant font-light">
           © {new Date().getFullYear()} Syentropy. Todos los derechos reservados.
         </p>

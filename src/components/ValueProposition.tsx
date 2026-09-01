@@ -53,7 +53,7 @@ export default function ValueProposition() {
   }, [activeTab]);
 
   return (
-    <section id="nosotros" className="py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative overflow-hidden border-t border-outline-variant/10">
+    <section id="nosotros" className="py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative overflow-hidden border-t border-outline-variant">
       
       {/* Background ambient spotlight blurs - Hidden on mobile */}
 
@@ -80,7 +80,7 @@ export default function ValueProposition() {
             Fusionamos el rigor del desarrollo backend, la automatización y el análisis de datos con la sofisticación del diseño frontend. El resultado son productos digitales que operan de manera autónoma en el fondo, mientras ofrecen una experiencia premium al usuario en la superficie.
           </p>
 
-          <div className="grid grid-cols-2 gap-8 pt-8 border-t border-outline-variant/20">
+          <div className="grid grid-cols-2 gap-8 pt-8 border-t border-outline-variant">
             <div>
               <div className="font-sans text-4xl font-bold text-primary mb-1">99%</div>
               <div className="font-sans text-xs sm:text-sm text-on-surface-variant font-light">
@@ -101,7 +101,7 @@ export default function ValueProposition() {
           <div className="absolute inset-0 glass-premium rounded-3xl overflow-hidden p-6 hover:shadow-[0_0_35px_rgba(0,180,255,0.1)] transition-all flex flex-col gap-4">
             
             {/* Console Header */}
-            <div className="flex items-center justify-between border-b border-outline-variant/30 pb-4">
+            <div className="flex items-center justify-between border-b border-outline-variant pb-4">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
                 <span className="font-sans text-[11px] font-bold text-primary tracking-widest uppercase">
@@ -139,7 +139,7 @@ export default function ValueProposition() {
             </div>
 
             {/* Simulated Live Output Console box */}
-            <div className="flex-1 bg-surface-container-lowest p-3 md:p-4 rounded-2xl border border-outline-variant/20 font-mono text-xs text-on-surface-variant/90 space-y-2 overflow-y-auto min-h-[140px] md:min-h-[160px] custom-scroller select-none">
+            <div className="flex-1 bg-surface-container-lowest p-3 md:p-4 rounded-2xl border border-outline-variant font-mono text-xs text-on-surface-variant/90 space-y-2 overflow-y-auto min-h-[140px] md:min-h-[160px] custom-scroller select-none">
               {simulatedLogs.map((log, index) => (
                 <div
                   key={index}
@@ -155,7 +155,7 @@ export default function ValueProposition() {
             </div>
 
             {/* Aesthetic Status Footer */}
-            <div className="flex justify-between items-center text-[10px] text-on-surface-variant/60 font-mono pt-2 border-t border-outline-variant/15">
+            <div className="flex justify-between items-center text-[10px] text-on-surface-variant/60 font-mono pt-2 border-t border-outline-variant">
               <span>Host: aws-us-east-2</span>
               <span className="flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3 text-secondary" />

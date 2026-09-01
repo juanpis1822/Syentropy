@@ -31,7 +31,7 @@ const AnimatedCounter = ({ end, suffix = "" }: { end: number, suffix?: string })
   return (
     <>
       <div className="section-divider"></div>
-      <section id="contexto" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-outline-variant/10 overflow-hidden">
+      <section id="contexto" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-outline-variant overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none -z-10"></div>
         <div className="max-w-7xl mx-auto">
         

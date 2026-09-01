@@ -105,7 +105,7 @@ export default function ServicesBento() {
   };
 
   return (
-    <section id="servicios" className={`py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative border-t border-outline-variant/10 ${selectedService ? "z-50" : "z-10"}`}>
+    <section id="servicios" className={`py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative border-t border-outline-variant ${selectedService ? "z-50" : "z-10"}`}>
       <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}
@@ -128,7 +128,7 @@ export default function ServicesBento() {
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               key={svc.id}
-              className={`glass-premium p-6 md:p-8 rounded-[2rem] flex flex-col group border border-outline-variant/15 relative overflow-hidden cursor-pointer ${svc.colorClass} ${svc.spanClass || ""}`}
+              className={`glass-premium p-6 md:p-8 rounded-[2rem] flex flex-col group border-outline-variant relative overflow-hidden cursor-pointer ${svc.colorClass} ${svc.spanClass || ""}`}
               onClick={() => setSelectedService(svc)}
             >
               {/* Subtle hover gradient overlay */}
@@ -138,7 +138,7 @@ export default function ServicesBento() {
               <div className="absolute top-0 right-0 w-24 h-24 bg-white/2 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform z-0"></div>
 
               {/* Icon Container */}
-              <div className="w-14 h-14 rounded-2xl bg-surface-container-high border border-outline-variant/20 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:shadow-2xl group-hover:animate-pulse transition-all relative z-10">
+              <div className="w-14 h-14 rounded-2xl bg-surface-container-high border border-outline-variant flex items-center justify-center mb-6 group-hover:scale-105 group-hover:shadow-2xl group-hover:animate-pulse transition-all relative z-10">
                 {renderIcon(svc.icon)}
               </div>
 
@@ -151,7 +151,7 @@ export default function ServicesBento() {
               </p>
 
               {/* Quick Bullets Preview */}
-              <div className="pt-4 border-t border-white/5 space-y-2.5 mt-auto relative z-10">
+              <div className="pt-4 border-t border-outline-variant space-y-2.5 mt-auto relative z-10">
                 {svc.bullets.slice(0, 2).map((b, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-[13px] text-on-surface font-light">
                     <span className="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
@@ -185,7 +185,7 @@ export default function ServicesBento() {
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="w-full glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-surface-tint/20 p-6 md:p-10 relative"
+                  className="w-full glass-premium rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-surface-tint/20 p-6 md:p-10 relative"
                   onClick={(e) => e.stopPropagation()}
                 >
                 {/* Close Button */}
@@ -197,7 +197,7 @@ export default function ServicesBento() {
                 </button>
   
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center text-primary">
+                  <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant flex items-center justify-center text-primary">
                     {renderIcon(selectedService.icon)}
                   </div>
                   <div>
@@ -220,7 +220,7 @@ export default function ServicesBento() {
                   </h4>
                   <ul className="grid grid-cols-1 gap-3">
                     {selectedService.bullets.map((bullet, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-on-surface/90 glass-panel p-3.5 rounded-xl border-white/5 bg-background/40">
+                      <li key={idx} className="flex items-start gap-3 text-sm text-on-surface/90 glass-panel p-3.5 rounded-xl border-outline-variant bg-background/40">
                         <CheckCircle2 className="w-5 h-5 text-surface-tint shrink-0 mt-0.5" />
                         <span className="font-light">{bullet}</span>
                       </li>

@@ -69,7 +69,7 @@ export default function Testimonials() {
     : [testimonials[activeIndex]];
 
   return (
-    <section id="testimonios" className="relative py-24 px-6 md:px-12 bg-surface-container-lowest border-t border-outline-variant/10 overflow-hidden">
+    <section id="testimonios" className="relative py-24 px-6 md:px-12 bg-surface-container-lowest border-t border-outline-variant overflow-hidden">
       {/* Ambient gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-primary/5 rounded-full blur-[100px] md:blur-[120px] pointer-events-none" />
 

@@ -8,19 +8,19 @@ export default function TechStack() {
       category: "Backend",
       tools: "Flask, FastAPI, NestJS",
       icon: "backend",
-      colorClass: "text-primary border-primary/20 bg-primary/5 shadow-[0_0_15px_rgba(165,231,255,0.1)]",
+      colorClass: "text-primary border-current bg-primary/5 shadow-[0_0_15px_rgba(165,231,255,0.1)]",
     },
     {
       category: "Frontend",
       tools: "React, Next.js, Tailwind",
       icon: "frontend",
-      colorClass: "text-secondary border-secondary/20 bg-secondary/5 shadow-[0_0_15px_rgba(182,196,255,0.1)]",
+      colorClass: "text-secondary border-current bg-secondary/5 shadow-[0_0_15px_rgba(182,196,255,0.1)]",
     },
     {
       category: "Automatización",
       tools: "n8n, WABA, OpenAI",
       icon: "automation",
-      colorClass: "text-tertiary border-tertiary/20 bg-tertiary/5 shadow-[0_0_15px_rgba(213,220,246,0.1)]",
+      colorClass: "text-tertiary border-current bg-tertiary/5 shadow-[0_0_15px_rgba(213,220,246,0.1)]",
     },
     {
       category: "Datos & Cloud",
@@ -46,7 +46,7 @@ export default function TechStack() {
   return (
     <>
       <div className="section-divider"></div>
-      <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
+      <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant">
         <div className="max-w-7xl mx-auto">
         
         {/* Header Block */}
@@ -69,7 +69,7 @@ export default function TechStack() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -6, scale: 1.03 }}
               key={idx}
-              className={`glass-panel p-6 md:p-8 rounded-[2rem] flex flex-col items-center text-center border transition-all duration-300 hover:border-surface-tint/30 group ${item.colorClass}`}
+              className={`glass-panel p-6 md:p-8 rounded-[2rem] flex flex-col items-center text-center transition-all duration-300 hover:border-surface-tint/30 group ${item.colorClass}`}
             >
               <div className="mb-4 text-on-surface-variant group-hover:text-current transition-all duration-300 transform group-hover:scale-110">
                 {renderIcon(item.icon)}

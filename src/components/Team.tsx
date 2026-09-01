@@ -35,7 +35,7 @@ export default function Team() {
   ];
 
   return (
-    <section id="equipo" className="py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant/10">
+    <section id="equipo" className="py-24 px-6 md:px-12 bg-background relative z-10 border-t border-outline-variant">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -58,17 +58,17 @@ export default function Team() {
               whileHover={{ y: -10, rotateX: 5, rotateY: -5 }}
               style={{ transformPerspective: 800 }}
               key={idx}
-              className={`glass-panel p-8 rounded-[2rem] flex flex-col items-center text-center border transition-all duration-300 relative group overflow-hidden card-hover-lift ${m.colorClass}`}
+              className={`glass-panel p-8 rounded-[2rem] flex flex-col items-center text-center transition-all duration-300 relative group overflow-hidden card-hover-lift ${m.colorClass}`}
             >
               {/* Soft background glow circles inside cards */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-28 bg-white/[0.01] rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
 
               {/* Avatar Photo Frame with user icon */}
-              <div className="relative w-24 h-24 rounded-full bg-surface-container-high mb-6 flex items-center justify-center border-2 border-outline-variant/20 group-hover:border-current group-hover:shadow-[0_0_20px_currentColor] transition-all duration-300">
+              <div className="relative w-24 h-24 rounded-full bg-surface-container-high mb-6 flex items-center justify-center border-2 border-outline-variant group-hover:border-current group-hover:shadow-[0_0_20px_currentColor] transition-all duration-300">
                 <User className="w-10 h-10 text-on-surface-variant/80 group-hover:scale-105 transition-transform" />
                 
                 {/* Floating circular label role indicators */}
-                <div className="absolute -bottom-1 -right-1 bg-surface-container-highest border border-outline-variant/20 rounded-lg px-2 py-0.5 text-[9px] font-bold tracking-wider font-mono text-on-surface">
+                <div className="absolute -bottom-1 -right-1 bg-surface-container-highest border border-outline-variant rounded-lg px-2 py-0.5 text-[9px] font-bold tracking-wider font-mono text-on-surface">
                   {m.avatarIcon}
                 </div>
               </div>
@@ -87,8 +87,8 @@ export default function Team() {
               </p>
               
               {/* Skills badge */}
-              <div className="mt-5 pt-3.5 border-t border-white/5 w-full flex items-center justify-center gap-2">
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-on-surface-variant/70 font-medium font-sans">
+              <div className="mt-5 pt-3.5 border-t border-outline-variant w-full flex items-center justify-center gap-2">
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant/70 font-medium font-sans">
                   Syentropy Core
                 </span>
               </div>

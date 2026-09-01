@@ -61,7 +61,7 @@ const NotFoundPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="glass-premium p-12 md:p-16 rounded-3xl border border-surface-tint/20 shadow-2xl relative overflow-hidden group"
+          className="glass-premium p-12 md:p-16 rounded-3xl border-surface-tint/20 shadow-2xl relative overflow-hidden group"
         >
           {/* Internal Glow on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -118,9 +118,9 @@ const NotFoundPage: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="mt-12 w-full max-w-2xl bg-surface-container/80 border border-outline-variant/30 rounded-lg p-4 font-mono text-sm text-left shadow-lg"
+          className="mt-12 w-full max-w-2xl bg-surface-container/80 border border-outline-variant rounded-lg p-4 font-mono text-sm text-left shadow-lg"
         >
-          <div className="flex items-center gap-2 mb-3 border-b border-outline-variant/30 pb-2">
+          <div className="flex items-center gap-2 mb-3 border-b border-outline-variant pb-2">
             <div className="w-3 h-3 rounded-full bg-error" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />

@@ -53,7 +53,7 @@ export default function Plans({ onSelectPlan }: PlansProps) {
   ];
 
   return (
-    <section id="planes" className="relative py-16 md:py-24 px-6 md:px-12 bg-background z-10 border-t border-outline-variant/10">
+    <section id="planes" className="relative py-16 md:py-24 px-6 md:px-12 bg-background z-10 border-t border-outline-variant">
       
       {/* Background radial accent */}
 
@@ -78,7 +78,7 @@ export default function Plans({ onSelectPlan }: PlansProps) {
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeOut" }}
               key={idx}
-              className={`glass-premium p-5 md:p-6 rounded-[2rem] flex flex-col border border-outline-variant/20 transition-colors duration-300 relative cursor-pointer ${p.colorClass} ${p.isRecommended ? 'animate-border-glow' : ''}`}
+              className={`glass-premium p-5 md:p-6 rounded-[2rem] flex flex-col border-outline-variant transition-colors duration-300 relative cursor-pointer ${p.colorClass} ${p.isRecommended ? 'animate-border-glow' : ''}`}
             >
               {/* Highlight Recommended Badge */}
               {p.isRecommended && p.badge && (

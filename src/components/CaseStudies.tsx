@@ -45,7 +45,7 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section id="portafolio" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-outline-variant/10">
+    <section id="portafolio" className="py-24 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-outline-variant">
       
       <div className="max-w-7xl mx-auto">
         
@@ -70,15 +70,15 @@ export default function CaseStudies() {
               onClick={() => setSelectedCase(project)}
             >
               {/* Outer visual enclosure wrapper */}
-              <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden glass-panel border border-outline-variant/15 mb-6 bg-surface-container flex items-end justify-center p-6 md:p-8">
+              <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden glass-panel border border-outline-variant mb-6 bg-surface-container flex items-end justify-center p-6 md:p-8">
                 {/* Visual gradient filter */}
                 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent opacity-60 group-hover:opacity-30 transition-opacity z-10 pointer-events-none"></div>
 
                 {project.type === "web" ? (
                   /* Web Browser Simulator visual Mock */
-                  <div className="w-full h-full border border-outline-variant/20 rounded-t-2xl bg-background overflow-hidden shadow-2xl transform translate-y-6 group-hover:translate-y-3 transition-transform duration-500 flex flex-col">
+                  <div className="w-full h-full border border-outline-variant rounded-t-2xl bg-background overflow-hidden shadow-2xl transform translate-y-6 group-hover:translate-y-3 transition-transform duration-500 flex flex-col">
                     {/* Mock Browser header */}
-                    <div className="h-7 border-b border-outline-variant/20 flex items-center px-4 gap-1.5 bg-surface-container-high/60">
+                    <div className="h-7 border-b border-outline-variant flex items-center px-4 gap-1.5 bg-surface-container-high/60">
                       <div className="w-2 h-2 rounded-full bg-outline-variant/65"></div>
                       <div className="w-2 h-2 rounded-full bg-outline-variant/65"></div>
                       <div className="w-2 h-2 rounded-full bg-outline-variant/65"></div>
@@ -94,11 +94,11 @@ export default function CaseStudies() {
                         </div>
                       </div>
                       <div className="grid grid-cols-3 gap-3 flex-1 mt-2">
-                        <div className="glass-panel rounded-xl flex flex-col p-3 border-white/5 justify-between">
+                        <div className="glass-panel rounded-xl flex flex-col p-3 border-outline-variant justify-between">
                           <Laptop className="w-4 h-4 text-primary" />
                           <div className="w-5/6 h-2 bg-surface-container-highest rounded"></div>
                         </div>
-                        <div className="col-span-2 glass-panel rounded-xl border-primary/20 border flex flex-col justify-between p-3 bg-primary/5">
+                        <div className="col-span-2 glass-panel rounded-xl border-primary/20 flex flex-col justify-between p-3 bg-primary/5">
                           <div className="flex justify-between items-center">
                             <span className="text-[9px] font-bold text-primary font-mono">STATUS: LIVE</span>
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -113,7 +113,7 @@ export default function CaseStudies() {
                   </div>
                 ) : (
                   /* Smartphone App Mock Visualizer element */
-                  <div className="w-3/5 h-[95%] border border-outline-variant/25 rounded-t-[2.5rem] bg-background overflow-hidden shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500 p-4 flex flex-col">
+                  <div className="w-3/5 h-[95%] border border-outline-variant rounded-t-[2.5rem] bg-background overflow-hidden shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500 p-4 flex flex-col">
                     {/* Mock speaker */}
                     <div className="w-16 h-1 w-full flex justify-center mb-5 shrink-0">
                       <div className="w-1/3 h-1 bg-outline-variant/30 rounded-full"></div>
@@ -126,7 +126,7 @@ export default function CaseStudies() {
                         <div className="w-1/2 h-1.5 bg-surface-container-highest/60 rounded mt-1"></div>
                       </div>
                       <div className="flex gap-3 shrink-0">
-                        <div className="w-10 h-10 rounded-full glass-panel border border-outline-variant/25 flex items-center justify-center font-mono text-[9px] text-secondary font-bold">IA</div>
+                        <div className="w-10 h-10 rounded-full glass-panel border border-outline-variant flex items-center justify-center font-mono text-[9px] text-secondary font-bold">IA</div>
                         <div className="flex-1 flex flex-col justify-center gap-1.5">
                           <div className="w-5/6 h-2 bg-surface-container-highest rounded"></div>
                           <div className="w-2/3 h-1.5 bg-surface-container-highest/60 rounded"></div>
@@ -147,7 +147,7 @@ export default function CaseStudies() {
                     {project.meta}
                   </p>
                 </div>
-                <div className="p-1 rounded-full border border-outline-variant/2 bg-surface-container-high/40 text-on-surface-variant group-hover:text-primary group-hover:border-primary/20 transition-all">
+                <div className="p-1 rounded-full border border-outline-variant bg-surface-container-high/40 text-on-surface-variant group-hover:text-primary group-hover:border-primary/20 transition-all">
                   <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function CaseStudies() {
             >
               <div className="flex items-start justify-center min-h-full w-full max-w-2xl py-4">
                 <div
-                  className="w-full glass-panel rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-surface-tint/20 bg-surface-container-low p-6 md:p-10 relative animate-fadeIn"
+                  className="w-full glass-panel rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border-surface-tint/20 bg-surface-container-low p-6 md:p-10 relative animate-fadeIn"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {/* Close Button */}
@@ -176,7 +176,7 @@ export default function CaseStudies() {
                   </button>
 
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-center text-primary font-bold font-mono">
+                    <div className="w-14 h-14 rounded-2xl bg-surface-container-high/60 border border-outline-variant flex items-center justify-center text-primary font-bold font-mono">
                       {selectedCase.type === "web" ? "SaaS" : "APP"}
                     </div>
                     <div>
@@ -207,7 +207,7 @@ export default function CaseStudies() {
                         </h4>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                           {selectedCase.metrics.map((metric, mIdx) => (
-                            <div key={mIdx} className="glass-panel p-4 rounded-2xl border-white/5 bg-background/40 flex flex-col justify-center">
+                            <div key={mIdx} className="glass-panel p-4 rounded-2xl border-outline-variant bg-background/40 flex flex-col justify-center">
                               <span className="font-sans text-2xl font-bold text-primary block mb-0.5">
                                 {metric.value}
                               </span>
@@ -220,7 +220,7 @@ export default function CaseStudies() {
                       </div>
                     )}
 
-                    <div className="p-4 rounded-2xl border border-outline-variant/20 bg-background/30 flex items-start gap-4">
+                    <div className="p-4 rounded-2xl border border-outline-variant bg-background/30 flex items-start gap-4">
                       <Activity className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                       <div className="text-xs sm:text-sm text-on-surface-variant/90 leading-relaxed font-light">
                         <strong className="text-on-surface block mb-0.5 font-semibold">Integración de arquitectura lógica profunda</strong>
