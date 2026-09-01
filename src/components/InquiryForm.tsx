@@ -155,7 +155,6 @@ export default function InquiryForm({ selectedPlan }: InquiryFormProps) {
   return (
     <section id="contacto" className="py-16 md:py-24 px-6 md:px-12 bg-surface relative border-t-glow">
       {/* Background soft focus bubble */}
-      <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[130px] pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         

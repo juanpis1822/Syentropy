@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syentropy | Interactive Project Brief</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#2563eb', 
+                            600: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 md:p-8 font-sans text-gray-800">
+
+    <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        
+        <!-- Header -->
+        <div class="bg-gray-900 text-white p-8 text-center">
+            <h1 class="text-3xl font-bold mb-2">Syentropy</h1>
+            <p class="text-gray-300 text-lg">Interactive Project Brief & Requirements Discovery</p>
+        </div>
+
+        <div class="p-8">
+            <p class="mb-6 text-gray-600">
+                To help us design the perfect technical solution for you, please answer the following questions. 
+                <strong>Don't worry if you don't know all the technical details</strong>—that's what our engineers are here for!
+            </p>
+
+            <form id="syentropyForm" onsubmit="submitForm(event)">
+                
+                <!-- Basic Info -->
+                <div class="mb-8 border-b pb-8">
+                    <label class="block text-sm font-semibold mb-2">Your Name / Company</label>
+                    <input type="text" name="client_name" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none mb-4">
+                    
+                    <label class="block text-sm font-semibold mb-2">Email Address</label>
+                    <input type="email" name="client_email" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none">
+                </div>
+
+                <!-- Section 1 -->
+                <div class="mb-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <h2 class="text-xl font-bold mb-4">Section 1: The Big Picture</h2>
+                    <label class="block text-sm font-semibold mb-4">What is the main goal you are trying to achieve with this project?</label>
+                    
+                    <div class="space-y-3">
+                        <label class="flex items-start p-3 border rounded-lg cursor-pointer hover:bg-gray-100 transition bg-white">
+                            <input type="radio" name="core_objective" value="A" onchange="handleBranchChange(event)" class="mt-1 mr-3" required>
+                            <div>
+                                <span class="font-bold block">A. Build a new software product or app.</span>
+                                <span class="text-sm text-gray-500">Moving from an idea or MVP to a market-ready launch.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start p-3 border rounded-lg cursor-pointer hover:bg-gray-100 transition bg-white">
+                            <input type="radio" name="core_objective" value="B" onchange="handleBranchChange(event)" class="mt-1 mr-3">
+                            <div>
+                                <span class="font-bold block">B. Automate manual workflows and connect systems.</span>
+                                <span class="text-sm text-gray-500">Save time, eliminate data entry, integrate apps.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start p-3 border rounded-lg cursor-pointer hover:bg-gray-100 transition bg-white">
+                            <input type="radio" name="core_objective" value="C" onchange="handleBranchChange(event)" class="mt-1 mr-3">
+                            <div>
+                                <span class="font-bold block">C. Integrate AI, Machine Learning, or Advanced Analytics.</span>
+                                <span class="text-sm text-gray-500">Predictive models, LLMs, optimization.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start p-3 border rounded-lg cursor-pointer hover:bg-gray-100 transition bg-white">
+                            <input type="radio" name="core_objective" value="D" onchange="handleBranchChange(event)" class="mt-1 mr-3">
+                            <div>
+                                <span class="font-bold block">D. Modernize or migrate a legacy system.</span>
+                                <span class="text-sm text-gray-500">Update old software, fix scaling issues, migrate to cloud.</span>
+                            </div>
+                        </label>
+                        <label class="flex items-start p-3 border rounded-lg cursor-pointer hover:bg-gray-100 transition bg-white">
+                            <input type="radio" name="core_objective" value="E" onchange="handleBranchChange(event)" class="mt-1 mr-3">
+                            <div>
+                                <span class="font-bold block">E. I have a problem, but I'm not sure what the exact solution is.</span>
+                                <span class="text-sm text-gray-500">Help me scope it out!</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- BRANCHES CONTAINER -->
+                <div id="branches-container">
+                    
+                    <!-- Branch A -->
+                    <div id="branch-A" class="branch-section hidden mb-8 p-6 bg-blue-50 border border-blue-200 rounded-lg border-l-4 border-l-blue-500">
+                        <h3 class="text-lg font-bold mb-4 text-blue-800">Branch A: Product Development</h3>
+                        
+                        <label class="block text-sm font-semibold mb-2">A.1 Who is the primary end-user of this product?</label>
+                        <input type="text" name="a_primary_user" placeholder="e.g. Internal staff, consumers, B2B clients..." class="w-full border border-gray-300 p-2 rounded mb-4">
+                        
+                        <label class="block text-sm font-semibold mb-2">A.2 What platforms do you anticipate needing?</label>
+                        <select name="a_platforms" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="">-- Select --</option>
+                            <option value="Web">Web Application (Browser UI)</option>
+                            <option value="Mobile">Mobile Application (iOS / Android)</option>
+                            <option value="Both">Both Web and Mobile</option>
+                            <option value="Unsure">I'm not sure, I need a recommendation.</option>
+                        </select>
+
+                        <label class="block text-sm font-semibold mb-2">A.3 The "Top 3" Features (What MUST users be able to do?)</label>
+                        <textarea name="a_features" rows="3" placeholder="1. Log in securely&#10;2. Upload CSV&#10;3. Pay subscription" class="w-full border border-gray-300 p-2 rounded mb-4"></textarea>
+                    </div>
+
+                    <!-- Branch B -->
+                    <div id="branch-B" class="branch-section hidden mb-8 p-6 bg-green-50 border border-green-200 rounded-lg border-l-4 border-l-green-500">
+                        <h3 class="text-lg font-bold mb-4 text-green-800">Branch B: Process Automation</h3>
+                        
+                        <label class="block text-sm font-semibold mb-2">B.1 What repetitive tasks are you trying to eliminate?</label>
+                        <textarea name="b_tasks" rows="2" class="w-full border border-gray-300 p-2 rounded mb-4"></textarea>
+                        
+                        <label class="block text-sm font-semibold mb-2">B.2 Which external platforms need to communicate? (e.g., Salesforce, Stripe)</label>
+                        <input type="text" name="b_stack" class="w-full border border-gray-300 p-2 rounded mb-4">
+                        
+                        <label class="block text-sm font-semibold mb-2">B.3 If an automation fails temporarily, what should happen?</label>
+                        <select name="b_failure_handling" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="">-- Select --</option>
+                            <option value="Alert Human">Alert me immediately to fix it.</option>
+                            <option value="Auto Retry">Log and auto-retry.</option>
+                            <option value="Unsure">Apply Syentropy's best practices.</option>
+                        </select>
+                    </div>
+
+                    <!-- Branch C -->
+                    <div id="branch-C" class="branch-section hidden mb-8 p-6 bg-purple-50 border border-purple-200 rounded-lg border-l-4 border-l-purple-500">
+                        <h3 class="text-lg font-bold mb-4 text-purple-800">Branch C: AI & Data Science</h3>
+                        
+                        <label class="block text-sm font-semibold mb-2">C.1 What kind of "smart" features are you looking for?</label>
+                        <select name="c_features" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="">-- Select --</option>
+                            <option value="Generative">Generative AI (Chatbots, docs)</option>
+                            <option value="Predictive">Predictive ML (Forecasting, behavior)</option>
+                            <option value="Optimization">Optimization (Routing, logistics)</option>
+                            <option value="Unsure">I have data and want to extract value.</option>
+                        </select>
+                        
+                        <label class="block text-sm font-semibold mb-2">C.2 Where does your data currently live?</label>
+                        <input type="text" name="c_data_location" placeholder="e.g. AWS, Excel, Google Analytics..." class="w-full border border-gray-300 p-2 rounded mb-4">
+                    </div>
+
+                    <!-- Branch D -->
+                    <div id="branch-D" class="branch-section hidden mb-8 p-6 bg-orange-50 border border-orange-200 rounded-lg border-l-4 border-l-orange-500">
+                        <h3 class="text-lg font-bold mb-4 text-orange-800">Branch D: Modernization & Migration</h3>
+                        
+                        <label class="block text-sm font-semibold mb-2">D.1 What system are you currently using, and what is the primary pain point?</label>
+                        <textarea name="d_pain_point" rows="2" class="w-full border border-gray-300 p-2 rounded mb-4"></textarea>
+                        
+                        <label class="block text-sm font-semibold mb-2">D.2 Do you have access to the original source code?</label>
+                        <select name="d_source_code" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="">-- Select --</option>
+                            <option value="Yes">Yes, full access.</option>
+                            <option value="Partial">Partial (code only, no docs).</option>
+                            <option value="No">No access / Not sure.</option>
+                        </select>
+                    </div>
+
+                    <!-- Branch E -->
+                    <div id="branch-E" class="branch-section hidden mb-8 p-6 bg-teal-50 border border-teal-200 rounded-lg border-l-4 border-l-teal-500">
+                        <h3 class="text-lg font-bold mb-4 text-teal-800">Branch E: Scoping & Discovery</h3>
+                        <p class="mb-4 text-sm text-teal-700">We will schedule a Technical Architecture & Scoping Consultation based on your answers below to help map out your project.</p>
+                        
+                        <label class="block text-sm font-semibold mb-2">E.1 Describe the biggest bottleneck in your business right now.</label>
+                        <textarea name="e_bottleneck" rows="2" class="w-full border border-gray-300 p-2 rounded mb-4"></textarea>
+                        
+                        <label class="block text-sm font-semibold mb-2">E.2 If Syentropy could magically solve one problem for you in 30 days, what would it be?</label>
+                        <textarea name="e_magic_solution" rows="2" class="w-full border border-gray-300 p-2 rounded mb-4"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Subsequent Sections (Hidden until branch is selected) -->
+                <div id="subsequent-sections" class="hidden">
+                    
+                    <div class="mb-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl font-bold mb-4">Section 2: Technical & Logistics</h2>
+                        <p class="text-sm text-gray-500 mb-4">Optional. If you don't know the answers, just select "I'm not sure".</p>
+                        
+                        <label class="block text-sm font-semibold mb-2">2.1 Security & Compliance expectations</label>
+                        <select name="security_level" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="Standard">Standard web security (Sufficient for most)</option>
+                            <option value="Strict">Strict (HIPAA / GDPR / SOC2 / High Traffic)</option>
+                            <option value="Unsure">I'm not sure, apply best practices.</option>
+                        </select>
+
+                        <label class="block text-sm font-semibold mb-2">2.2 Target Launch Timeline</label>
+                        <select name="timeline" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="">-- Select --</option>
+                            <option value="MVP (4-6 weeks)">Fast-track MVP (4-6 weeks)</option>
+                            <option value="Standard (8-12 weeks)">Standard Development (8-12 weeks)</option>
+                            <option value="Enterprise (3+ months)">Enterprise Rollout (3+ months)</option>
+                            <option value="No rush">No rush, let's just get it right.</option>
+                        </select>
+                        
+                        <label class="block text-sm font-semibold mb-2">2.3 Allocated Budget Range</label>
+                        <select name="budget" class="w-full border border-gray-300 p-2 rounded mb-4 bg-white">
+                            <option value="">-- Select --</option>
+                            <option value="< $10k">Under $10,000</option>
+                            <option value="$10k - $25k">$10,000 - $25,000</option>
+                            <option value="$25k - $50k+">$25,000 - $50,000+</option>
+                            <option value="Discuss later">Let's discuss this during the consultation.</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 px-8 rounded-lg shadow-md transition duration-300 text-lg">
+                        Submit Project Brief
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        function handleBranchChange(event) {
+            const selectedBranch = event.target.value;
+            
+            // Hide all branch sections
+            document.querySelectorAll('.branch-section').forEach(el => {
+                el.classList.add('hidden');
+                // Optional: clear inputs in hidden branches so they aren't submitted
+                el.querySelectorAll('input, select, textarea').forEach(input => input.value = ''); 
+            });
+            
+            // Show selected branch
+            if(selectedBranch) {
+                document.getElementById('branch-' + selectedBranch).classList.remove('hidden');
+                // Show subsequent sections (Section 2 & Submit button)
+                document.getElementById('subsequent-sections').classList.remove('hidden');
+            }
+        }
+
+        async function submitForm(event) {
+            event.preventDefault(); // Prevent standard page reload
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Clean up the data object (remove empty fields from hidden branches)
+            Object.keys(data).forEach(key => {
+                if (data[key] === '') {
+                    delete data[key];
+                }
+            });
+
+            console.log("🚀 Payload ready to send to Syentropy Backend or n8n Webhook:", JSON.stringify(data, null, 2));
+            
+            alert("Form submitted! Check your browser's Developer Console (F12) to see the JSON data that would be sent to your database/automations.");
+
+            /* 
+            =====================================================================
+            INTEGRATION CODE (Uncomment and edit to connect to your backend / n8n)
+            =====================================================================
+            
+            try {
+                // Example: Sending to an n8n Webhook
+                const webhookUrl = 'https://your-n8n-instance.com/webhook/syentropy-brief';
+                
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if(response.ok) {
+                    alert('Success! Syentropy has received your project brief.');
+                    event.target.reset(); // clear form
+                    location.reload(); // reload page to reset state
+                } else {
+                    alert('There was a problem submitting your form.');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Connection error. Please try again.');
+            }
+            */
+        }
+    </script>
+</body>
+</html>

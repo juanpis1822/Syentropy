@@ -9,8 +9,6 @@ export default function ContactoPage() {
       <section className="relative py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 overflow-hidden">
         {/* Background ambient */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-30%] right-[-10%] w-[700px] h-[700px] bg-primary/10 rounded-full blur-[180px]"></div>
-          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-secondary-container/15 rounded-full blur-[140px]"></div>
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">

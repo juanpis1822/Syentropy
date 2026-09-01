@@ -58,7 +58,7 @@ export default function ServicesBento() {
         "Automatización de procesos (n8n, Make)",
         "Sistemas OCR y procesamiento de documentos"
       ],
-      colorClass: "from-secondary to-fuchsia-600 text-secondary shadow-[0_0_25px_rgba(192,38,211,0.2)] bg-secondary/10 hover:border-secondary/50 group-hover:bg-secondary/15",
+      colorClass: "from-secondary to-blue-600 text-secondary shadow-[0_0_25px_rgba(2,132,199,0.2)] bg-secondary/10 hover:border-secondary/50 group-hover:bg-secondary/15",
       spanClass: "lg:col-span-1",
     },
     {

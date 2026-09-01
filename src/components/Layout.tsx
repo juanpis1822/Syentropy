@@ -18,12 +18,9 @@ export default function Layout() {
       {/* Multi-layer animated background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         {/* Dot grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
         
-        {/* Ambient gradient orbs that add depth to the dark background */}
-        <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-primary-container/[0.08] rounded-full blur-[180px] animate-mesh"></div>
-        <div className="absolute bottom-[5%] right-[-5%] w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-[160px] animate-mesh" style={{ animationDelay: '8s' }}></div>
-        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/[0.04] rounded-full blur-[200px] animate-float"></div>
+        {/* Ambient elements removed for a cleaner look */}
         
         {/* Subtle horizontal light beam */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>

@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { ArrowRight, Calendar, ArrowDown, Zap } from "lucide-react";
-import Hero3DBackground from "./Hero3DBackground";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -17,42 +16,11 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-24 select-none">
-      {/* Animated Mesh Background with Interactive 3D Canvas */}
+      {/* Animated Mesh Background */}
       <div className="absolute inset-0 z-0 bg-surface-container-lowest overflow-hidden">
-        {/* Interactive 3D Background */}
-        <Hero3DBackground />
-        
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest pointer-events-none"></div>
         
-        {/* Animated gradient mesh orbs */}
-        <div className="hidden md:block absolute top-[-25%] left-[15%] w-[900px] h-[900px] bg-primary-container/25 rounded-full blur-[180px] animate-mesh"></div>
-        <div className="hidden md:block absolute bottom-[-15%] right-[-15%] w-[700px] h-[700px] bg-secondary/25 rounded-full blur-[160px] animate-mesh" style={{ animationDelay: '5s' }}></div>
-        <div className="hidden md:block absolute top-[20%] right-[20%] w-[400px] h-[400px] bg-tertiary/20 rounded-full blur-[120px] animate-mesh" style={{ animationDelay: '10s' }}></div>
-        <div className="hidden md:block absolute bottom-[20%] left-[-5%] w-[500px] h-[500px] bg-surface-tint/20 rounded-full blur-[140px] animate-float" style={{ animationDelay: '3s' }}></div>
-        
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-surface-tint/40 rounded-full"
-            style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 3) * 25}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.7, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.8,
-            }}
-          />
-        ))}
       </div>
 
       {/* Main Content */}
@@ -88,7 +56,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-          className="font-sans text-base sm:text-lg md:text-xl text-white max-w-3xl mx-auto mb-12 leading-relaxed font-medium drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
+          className="font-sans text-base sm:text-lg md:text-xl text-on-surface-variant max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
         >
           Transformamos la complejidad operativa en experiencias digitales fluidas e intuitivas. Interfaces de alto rendimiento respaldadas por lógica de automatización avanzada.
         </motion.p>
@@ -123,7 +91,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 text-on-surface-variant/50 text-[10px] sm:text-xs font-sans"
+          className="mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 text-on-surface-variant/80 text-[10px] sm:text-xs font-sans"
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>

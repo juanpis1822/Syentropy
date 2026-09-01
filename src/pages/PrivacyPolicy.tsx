@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
     <div className="bg-background text-on-surface font-sans min-h-screen relative antialiased selection:bg-surface-tint selection:text-background overflow-x-hidden">
       {/* Dot grid overlay */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.01)_1.5px,transparent_1.5px)] bg-[size:32px_32px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.03)_1.5px,transparent_1.5px)] bg-[size:32px_32px]"></div>
       </div>
 
       {/* Top bar */}

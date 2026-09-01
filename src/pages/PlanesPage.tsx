@@ -15,8 +15,6 @@ export default function PlanesPage() {
       {/* Page Hero */}
       <section className="relative py-14 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-20%] right-[20%] w-[600px] h-[600px] bg-secondary-container/15 rounded-full blur-[160px]"></div>
-          <div className="absolute bottom-[-30%] left-[-5%] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]"></div>
         </div>
         
         <motion.div

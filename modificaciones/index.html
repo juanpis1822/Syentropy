@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syentropy | Software Engineering & Systems Optimization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        pdfblue: '#2563eb', /* Deep blue from the package titles */
+                        pdfcyan: '#0ea5e9', /* Cyan/light blue from the subtitle */
+                        pdfgray: '#f8fafc', /* Light gray for tags/backgrounds */
+                        pdfdark: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+        }
+        .bullet-point {
+            color: #2563eb;
+            font-size: 1.2rem;
+            line-height: 1;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-pdfdark tracking-tight">Syentropy</span>
+                </div>
+                <div>
+                    <a href="#consultation" class="bg-pdfblue hover:bg-blue-700 text-white px-5 py-2 rounded-md font-medium transition-colors duration-200 shadow-sm">
+                        Book a Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-pdfdark tracking-tight mb-4">
+            Syentropy
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 mb-3 font-light">
+            Software Engineering & Systems Optimization Proposal
+        </p>
+        <p class="text-2xl md:text-3xl font-semibold text-pdfcyan mb-10">
+            Intelligent Architecture. Automated Operations.
+        </p>
+        
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl custom-shadow border border-gray-100 text-left mb-16">
+            <h2 class="text-xl font-bold text-gray-900 mb-3">About the Engineering Team</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+                We are a specialized technical team of four systems engineers from Universidad Distrital Francisco José de Caldas. We bridge the gap between rigorous academic theory and high-performance commercial software.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                Our engineering philosophy is built on robust systems architecture, enforcing strict SOLID principles and design patterns to ensure scalable, maintainable codebases. Armed with advanced certifications in <strong>Google Machine Learning Engineering</strong> and <strong>n8n automation</strong>, we construct intelligent, automated ecosystems rather than simple websites.
+            </p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Service Packages & Offerings</h2>
+            <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+                Our project scopes are tiered based on complexity, required infrastructure, and the strategic value delivered to your operations. Below are our foundational packages, designed to accelerate your technical capabilities.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Package 1 -->
+            <div class="bg-white rounded-2xl custom-shadow border border-gray-200 p-8 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                <h3 class="text-xl font-bold text-pdfblue mb-1">Package 1: Business Automation</h3>
+                <h4 class="text-md font-semibold text-gray-500 mb-2">(The Catalyst)</h4>
+                <p class="text-sm text-gray-500 italic mb-6">Eliminate manual data entry and connect your business ecosystems.</p>
+                
+                <div class="bg-blue-50 border border-blue-100 text-blue-700 rounded-lg px-4 py-2 font-bold text-center mb-8">
+                    Starting at $800 USD
+                </div>
+                
+                <ul class="space-y-4 mb-8 flex-grow text-sm text-gray-700">
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Workflow & Systems Mapping:</strong> Strategic analysis to identify operational bottlenecks and redundant tasks.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>n8n Automation Pipelines:</strong> Custom, self-hosted or cloud integration of your existing tools (CRM, Email, Slack, Sheets) utilizing complex logic nodes.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Data Synchronization:</strong> Real-time data routing to eliminate human error in operational tasks.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Error Handling & Logging:</strong> Robust fallback mechanisms ensuring uninterrupted 24/7 execution.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Post-Deployment Support:</strong> 1 month of monitoring and pipeline adjustments.</span></li>
+                </ul>
+                
+                <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-gray-100">
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">n8n</span>
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">API Integration</span>
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">Process Optimization</span>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="bg-white rounded-2xl custom-shadow border border-gray-200 p-8 flex flex-col hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-pdfblue text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Most Popular</div>
+                <h3 class="text-xl font-bold text-pdfblue mb-1">Package 2: Full Stack Development</h3>
+                <h4 class="text-md font-semibold text-gray-500 mb-2">(The Core)</h4>
+                <p class="text-sm text-gray-500 italic mb-6">Custom web applications engineered for scale and security.</p>
+                
+                <div class="bg-blue-50 border border-blue-100 text-blue-700 rounded-lg px-4 py-2 font-bold text-center mb-8">
+                    Starting at $3,500 USD
+                </div>
+                
+                <ul class="space-y-4 mb-8 flex-grow text-sm text-gray-700">
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Architectural Design:</strong> Codebase structured strictly via SOLID principles and established software design patterns for long-term scalability.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Custom Backend & API:</strong> Secure, efficient server-side logic in Python or Java.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Database Engineering:</strong> High-performance data modeling utilizing PostgreSQL for relational needs or NoSQL solutions depending on querying parameters.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Responsive Frontend:</strong> User-centric interfaces designed for seamless cross-device performance.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Full Technical Handoff:</strong> Delivery of source code, deployment instructions, and extensive system documentation.</span></li>
+                </ul>
+                
+                <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-gray-100">
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">Python / Java</span>
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">PostgreSQL</span>
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">NoSQL</span>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="bg-white rounded-2xl custom-shadow border border-gray-200 p-8 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                <h3 class="text-xl font-bold text-pdfblue mb-1">Package 3: AI & ML Integration</h3>
+                <h4 class="text-md font-semibold text-gray-500 mb-2">(The Edge)</h4>
+                <p class="text-sm text-gray-500 italic mb-6">Advanced predictive models and LLM agents for data-driven enterprises.</p>
+                
+                <div class="bg-blue-50 border border-blue-100 text-blue-700 rounded-lg px-4 py-2 font-bold text-center mb-8">
+                    Starting at $6,000 USD
+                </div>
+                
+                <ul class="space-y-4 mb-8 flex-grow text-sm text-gray-700">
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Comprehensive Full Stack Foundation:</strong> Includes all architecture and development from Package 2.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Custom AI/LLM Integration:</strong> Embedding intelligent chatbots, context-aware AI agents, and semantic search into your platform.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Predictive Analytics:</strong> Leveraging Google Machine Learning engineering practices to deploy models that forecast trends or classify data.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Data Pipeline Construction:</strong> Aggregating, cleaning, and formatting raw business data to feed highly secure ML models.</span></li>
+                    <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Cloud & Container Deployment:</strong> Scalable hosting architecture for high-availability AI services.</span></li>
+                </ul>
+                
+                <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-gray-100">
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">Google ML</span>
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">LLM Agents</span>
+                    <span class="bg-pdfgray text-gray-600 text-xs font-medium px-2.5 py-1 rounded">Data Pipelines</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Custom Enterprise Section -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="bg-white rounded-2xl custom-shadow border border-gray-200 p-8 md:p-10">
+            <div class="md:flex md:items-center md:justify-between mb-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Custom Enterprise & Systems Optimization</h3>
+                    <p class="text-gray-500 italic">For technical challenges requiring advanced mathematical modeling or extensive infrastructural overhauls.</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="inline-block bg-gray-100 text-gray-700 font-semibold px-4 py-2 rounded-lg text-sm whitespace-nowrap">
+                        Custom Milestones
+                    </span>
+                </div>
+            </div>
+            
+            <ul class="space-y-4 text-gray-700">
+                <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Operations Research:</strong> Algorithmic modeling (Linear/Integer Programming, Network Flows) for logistics, routing, and resource optimization.</span></li>
+                <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Database Redesign & Migration:</strong> Transitioning legacy systems to highly optimized, secure architectures.</span></li>
+                <li class="flex items-start"><span class="bullet-point">▪</span> <span><strong>Technical Audits:</strong> Deep-dive code reviews focusing on algorithmic efficiency, cybersecurity vulnerabilities, and architectural bottlenecks.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA / Footer -->
+    <section id="consultation" class="bg-white border-t border-gray-200 py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to build?</h2>
+            <p class="text-xl text-gray-600 mb-8">Let's define your project requirements.</p>
+            <a href="https://syentropyweb.vercel.app" target="_blank" class="inline-block bg-pdfblue hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1 text-lg">
+                Contact the Syentropy Team
+            </a>
+            <p class="mt-6 text-sm text-gray-400">syentropyweb.vercel.app</p>
+        </div>
+    </section>
+
+</body>
+</html>

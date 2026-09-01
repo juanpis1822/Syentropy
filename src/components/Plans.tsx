@@ -56,7 +56,6 @@ export default function Plans({ onSelectPlan }: PlansProps) {
     <section id="planes" className="relative py-16 md:py-24 px-6 md:px-12 bg-background z-10 border-t border-outline-variant/10">
       
       {/* Background radial accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-secondary-container/5 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto">
         

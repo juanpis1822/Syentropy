@@ -56,7 +56,6 @@ export default function ValueProposition() {
     <section id="nosotros" className="py-16 md:py-24 px-6 md:px-12 bg-surface-container-lowest relative overflow-hidden border-t border-outline-variant/10">
       
       {/* Background ambient spotlight blurs - Hidden on mobile */}
-      <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         
